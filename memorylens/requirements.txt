@@ -1,0 +1,8 @@
+chromadb
+langgraph
+langchain
+langchain-anthropic
+openai
+sentence-transformers
+pillow
+python-dotenv
