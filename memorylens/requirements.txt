@@ -2,7 +2,7 @@ chromadb
 langgraph
 langchain
 langchain-community
-lanchain-ollama
+langchain-ollama
 openai
 sentence-transformers
 pillow
