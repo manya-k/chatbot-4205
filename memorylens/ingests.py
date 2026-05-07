@@ -133,7 +133,7 @@ Each episode object must have exactly these fields:
 - constraint_relevant: string describing any user preference or constraint revealed, or null
 
 Travel notes for {destination}:
-{raw_text[:3500]}
+{raw_text}
 
 Return the JSON array now:"""
 
@@ -151,6 +151,7 @@ Return the JSON array now:"""
         return episodes
     except json.JSONDecodeError as e:
         print(f"  ✗ JSON error: {e}")
+        print(f"  Raw response:\n{raw[start:end][:500]}")
         return []
 
 
@@ -160,14 +161,14 @@ def add_temporal_links(episodes):
     Adds temporal links between the previous nad the next episode to establish a timelone
     and adds order to the episodews
     """
-    episodes.sort(key=lambda e: e.get("day_number", 0))
+    episodes.sort(key=lambda e: e.get("day_number") or 0)
     for i, ep in enumerate(episodes):
         if i > 0: 
             ep["linked_previous"] = episodes[i-1]["episode_id"]
         else: 
             ep["linked_previous"] = None
 
-        if i < len(episodes):
+        if i < len(episodes) - 1:
             ep["linked_next"] = episodes[i+1]["episode_id"]
         else:
             ep["linked_next"] = None
@@ -215,18 +216,18 @@ def store_text_episodes(episodes):
         docs.append(Document(
             page_content=doc_text,
             metadata={
-                "episode_id":          eid,
-                "destination":         ep.get("destination", ""),
-                "day_number":          ep.get("day_number", 0),
-                "location":            ep.get("location", ""),
-                "emotion":             ep.get("emotion", ""),
-                "cost_aud":            str(ep.get("cost_aud") or ""),
-                "tags":                json.dumps(ep.get("tags", [])),
-                "linked_previous":     ep.get("linked_previous") or "",
-                "linked_next":         ep.get("linked_next") or "",
-                "linked_theme":        json.dumps(ep.get("linked_theme", [])),
+                "episode_id": eid,
+                "destination": ep.get("destination", ""),
+                "day_number": ep.get("day_number", 0),
+                "location": ep.get("location", ""),
+                "emotion": ep.get("emotion", ""),
+                "cost_aud": str(ep.get("cost_aud") or ""),
+                "tags": json.dumps(ep.get("tags", [])),
+                "linked_previous": ep.get("linked_previous") or "",
+                "linked_next": ep.get("linked_next") or "",
+                "linked_theme": json.dumps(ep.get("linked_theme", [])),
                 "constraint_relevant": ep.get("constraint_relevant") or "",
-                "type":                "episode"
+                "type": "episode"
             }
         ))
         ids.append(eid)

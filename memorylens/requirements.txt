@@ -1,4 +1,4 @@
-chromadb
+langchain-chroma
 langgraph
 langchain
 langchain-community
