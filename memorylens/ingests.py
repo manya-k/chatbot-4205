@@ -311,6 +311,20 @@ def ingest_images():
         )
 
         episode_store.add_documents([doc], ids=[eid])
+
+        # now store the same image in the chunk store as well but without the 
+        # structure - as flat chunks
+        chunk_img_doc = Document(
+            page_content=doc_text,
+            metadata={
+                "destination": destination,
+                "type":        "chunk",
+                "source":      "image",
+                "location":    location
+            }
+        )
+        chunk_store.add_documents([chunk_img_doc], ids=[f"CHUNK_{eid}"])
+
         stored_episodes.append({
             "episode_id":  eid,
             "destination": destination,

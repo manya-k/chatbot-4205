@@ -99,7 +99,7 @@ def v0_retrieval_node(state: AgentState) -> AgentState:
     Same chunk_store as Variant A — retrieval is held constant.
     This ensures V0 vs VA comparison isolates memory only.
     """
-    results = chunk_store.similarity_search(state["query"], k=3)
+    results = chunk_store.similarity_search(state["query"], k=5)
     context = "\n\n".join([doc.page_content for doc in results])
     return {**state, "retrieved_context": context}
  
@@ -165,7 +165,7 @@ def retrieval_node(state: AgentState) -> AgentState:
     """
     query = state["query"]
     memory = state["user_memory"]
-    K     = 3  
+    K = 5  
 
     if state["mode"] == "episodes":
         # Variant B: search structured episodes, 
@@ -218,6 +218,12 @@ def answer_node(state: AgentState) -> AgentState:
         elif isinstance(msg, AIMessage):
             history_str += f"Assistant: {msg.content}\n"
 
+    constraint_reminder = ""
+    memory = state["user_memory"]
+    if memory:
+        constraint_reminder = f"\nREMINDER — always honour these constraints in your answer:\n"
+        constraint_reminder += "\n".join(f"- {m}" for m in memory)
+    
     prompt = f"""You are a personalised travel assistant with access to the user's own travel memories.
 
 RULES:
@@ -229,6 +235,7 @@ RULES:
 
 RETRIEVED CONTEXT:
 {context if context else "No context retrieved."}
+{constraint_reminder}
 
 {f"RECENT CONVERSATION:{chr(10)}{history_str}" if history_str else ""}
 
@@ -254,19 +261,18 @@ def memory_write_node(state: AgentState) -> AgentState:
 
     prompt = f"""Extract any personal travel preference or constraint the user just revealed.
 
+Return it as a SHORT phrase — maximum 8 words.
+Focus on the key constraint word.
+
 Examples:
-- Budget limits: "I have $50/day"
-- Dislikes: "I hate crowded places", "I don't like spicy food"
-- Dietary needs: "I am vegetarian", "I am allergic to nuts"
-- Physical limits: "I can't do long hikes"
-- Travel style: "I prefer local food over tourist restaurants"
+- "hates crowded places"
+- "budget $50 per day"  
+- "is vegetarian"
+- "cannot do long hikes"
 
 User said: "{query}"
 
-If a clear personal preference or constraint was stated, return it as one short sentence.
-If nothing personal was revealed, return exactly: NONE
-
-Extracted:"""
+Return the short constraint phrase or NONE:"""
 
     extracted = llm.invoke(prompt).strip()
 
