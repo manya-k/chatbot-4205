@@ -8,7 +8,10 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OllamaEmbeddings  
 from langchain_text_splitters import RecursiveCharacterTextSplitter 
 from langchain_core.documents import Document                      
-from langchain_core.tools import tool                     
+from langchain_core.tools import tool       
+from PIL import Image
+import io
+
 
 # configs
 NOTES_DIR    = Path("knowledge_base/notes")
@@ -72,8 +75,8 @@ def get_all_photos():
 def encode_image_base64(image_path):
     with open(image_path, "rb") as f:
         return base64.b64encode(f.read()).decode("utf-8")
- 
- 
+
+
 def safe_id(text):
     return re.sub(r"[^a-zA-Z0-9_-]", "_", text).upper()
  
@@ -126,9 +129,9 @@ Each episode object must have exactly these fields:
 - day_number: integer
 - location: string (specific place name)
 - title: string (one sentence summary of the event)
-- description: string (2-3 sentences describing what happened)
+- description: string (detailed account of the experience, what happened, who was there, how the traveller felt, etc)
 - emotion: string (1-2 words describing how the traveller felt)
-- cost_aud: number or null
+- cost_aud: number (estimated cost in AUD, 0 if free)
 - tags: array of strings chosen from: beach, food, temple, hiking, culture, budget, crowded, peaceful, market, nightlife, nature, city, luxury, art, history, wildlife, adventure, relaxing
 - constraint_relevant: string describing any user preference or constraint revealed, or null
 
@@ -238,7 +241,7 @@ def store_text_episodes(episodes):
     print(f"  ✓ {len(docs)} text episodes stored")
 
 
-# ── Image Ingestion (LangChain version) ───────────────────────────────────────
+# image ingestio
 
 def describe_image(image_path, location, hint):
     import ollama  # direct call needed for image support
@@ -254,16 +257,32 @@ Describe this photo in exactly 3 sentences:
 
 Be specific and vivid. Start directly with the description."""
 
-    try:
-        img_b64  = encode_image_base64(image_path)
-        response = ollama.chat(
-            model=MODEL,
-            messages=[{"role": "user", "content": prompt, "images": [img_b64]}]
-        )
-        return response["message"]["content"].strip()
-    except Exception as e:
-        print(f"    ✗ Vision error: {e}")
-        return f"A travel photo taken at {location}."
+    MAX_RETRIES  = 3
+    RETRY_DELAYS = [5, 15, 30]  # seconds to wait before each retry
+ 
+    img_b64 = encode_image_base64(image_path)
+ 
+    for attempt in range(MAX_RETRIES):
+        try:
+            response = ollama.chat(
+                model=MODEL,
+                messages=[{"role": "user", "content": prompt, "images": [img_b64]}]
+            )
+            return response["message"]["content"].strip()
+ 
+        except Exception as e:
+            is_last_attempt = attempt == MAX_RETRIES - 1
+ 
+            if is_last_attempt:
+                # All retries exhausted — store placeholder so ingestion continues
+                print(f"    ✗ Vision error after {MAX_RETRIES} attempts: {e}")
+                print(f"    ✗ Storing placeholder — re-run ingest.py to retry this image")
+                return f"A travel photo taken at {location}."
+            else:
+                delay = RETRY_DELAYS[attempt]
+                print(f"    ✗ Vision error (attempt {attempt + 1}/{MAX_RETRIES}): {e}")
+                print(f"    ↻ Retrying in {delay}s...")
+                time.sleep(delay)
 
 
 def ingest_images():
@@ -333,7 +352,7 @@ def ingest_images():
             "description": description
         })
 
-        time.sleep(0.5)
+        time.sleep(2)
 
     print(f"\n  ✓ {len(stored_episodes)} image episodes stored")
     return stored_episodes
