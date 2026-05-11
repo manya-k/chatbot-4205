@@ -288,7 +288,7 @@ def ingest_images():
         description = describe_image(photo_path, location, hint)
         print(f"    ✓ {description[:80]}...")
 
-        doc_text = f"Photo from {location} in {destination}. {description}"
+        doc_text = f"Photo from {location} in {destination}. Location: {destination}, {location}. {description}"
 
         # LangChain Document for the image episode
         doc = Document(
