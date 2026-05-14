@@ -48,6 +48,19 @@ SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG", ".heic
  
 # Filename Parse
 def parse_photo_filename(filepath):
+    """
+    Parses a photo filename to extract destination and location information.
+    
+    Extracts destination from the first part of the filename (before underscore),
+    normalizes it using DESTINATION_ALIASES, and extracts location from remaining parts.
+    
+    Args:
+        filepath: Path object representing the photo file
+        
+    Returns:
+        tuple: (destination, location, hint) where destination is the normalized location,
+               location is the specific place name, and hint is used for image context
+    """
     stem       = filepath.stem
     stem_clean = stem.replace("-", " ")
     parts      = stem_clean.split("_", 1)
@@ -62,6 +75,18 @@ def parse_photo_filename(filepath):
  
  
 def get_all_photos():
+    """
+    Retrieves all photo files from the PHOTOS_DIR directory.
+    
+    Filters files to include only supported image extensions defined in SUPPORTED_EXTENSIONS.
+    Returns sorted list of Path objects for all valid photo files.
+    
+    Args:
+        None
+        
+    Returns:
+        list: Sorted list of Path objects for photo files, or empty list if PHOTOS_DIR doesn't exist
+    """
     if not PHOTOS_DIR.exists():
         return []
 
@@ -73,17 +98,51 @@ def get_all_photos():
  
  
 def encode_image_base64(image_path):
+    """
+    Encodes an image file to base64 string for transmission.
+    
+    Args:
+        image_path: Path to the image file
+        
+    Returns:
+        str: Base64-encoded string representation of the image file
+    """
     with open(image_path, "rb") as f:
         return base64.b64encode(f.read()).decode("utf-8")
 
 
 def safe_id(text):
+    """
+    Converts text to a safe identifier by replacing non-alphanumeric characters with underscores.
+    
+    Removes or replaces any characters that are not letters, numbers, underscores, or hyphens
+    and converts the result to uppercase.
+    
+    Args:
+        text: String to convert to safe identifier
+        
+    Returns:
+        str: Uppercase string with only alphanumeric characters, underscores, and hyphens
+    """
     return re.sub(r"[^a-zA-Z0-9_-]", "_", text).upper()
  
  
 # ── System A: Chunck Ingestion 
 def ingest_chunks(destination, text):
-
+    """
+    Chunks text content and stores it in the ChromaDB chunk_store collection.
+    
+    Splits input text using RecursiveCharacterTextSplitter with 1200 character chunks
+    and 200 character overlap. Adds metadata including destination, type, chunk index,
+    and source for filtering and evaluation purposes.
+    
+    Args:
+        destination (str): The destination/location name for metadata
+        text (str): Raw text content to be chunked and ingested
+        
+    Returns:
+        list: List of Document objects representing the created chunks
+    """
     print(f"\n  [System A] Chunking {destination}...")
 
     splitter = RecursiveCharacterTextSplitter(
@@ -116,6 +175,20 @@ def ingest_chunks(destination, text):
 # System B: Episode Extraction 
 
 def extract_episodes(destination, raw_text):
+    """
+    Extracts structured episode data from travel notes using LLM-as-judge.
+    
+    Prompts the LLM to structure raw travel text into JSON episodes with fields:
+    episode_id, destination, day_number, location, title, description, cost_aud,
+    tags, and constraint_relevant. Handles JSON parsing errors gracefully.
+    
+    Args:
+        destination (str): The destination/location name for context
+        raw_text (str): Raw travel notes text to be parsed into episodes
+        
+    Returns:
+        list: List of episode dictionaries with structured data, or empty list if parsing fails
+    """
     print(f"\n  [System B] Extracting episodes for {destination}...")
 
     prompt = f"""Convert these personal travel notes into a JSON array of structured memory episodes.
@@ -160,8 +233,17 @@ Return the JSON array now:"""
 
 def add_temporal_links(episodes):
     """
-    Adds temporal links between the previous nad the next episode to establish a timelone
-    and adds order to the episodews
+    Adds temporal links to establish a timeline between consecutive episodes.
+    
+    Sorts episodes by day_number and creates linked_previous and linked_next
+    fields pointing to adjacent episode IDs. First episode has linked_previous=None,
+    last episode has linked_next=None.
+    
+    Args:
+        episodes (list): List of episode dictionaries with 'day_number' and 'episode_id' fields
+        
+    Returns:
+        list: Updated episodes list with temporal link fields added
     """
     episodes.sort(key=lambda e: e.get("day_number") or 0)
     for i, ep in enumerate(episodes):
@@ -178,6 +260,19 @@ def add_temporal_links(episodes):
 
 
 def add_thematic_links(all_episodes):
+    """
+    Creates thematic links between episodes that share common tags.
+    
+    Builds a tag index mapping each tag to episodes containing it, then links
+    each episode to up to 5 other episodes sharing tags (excluding self).
+    Adds 'linked_theme' field containing list of related episode IDs.
+    
+    Args:
+        all_episodes: List of all episode dictionaries with 'tags' and 'episode_id' fields
+        
+    Returns:
+        list: Updated episodes list with thematic link fields added
+    """
     tag_index = {}
     for ep in all_episodes:
         # add related tags
@@ -202,6 +297,18 @@ def add_thematic_links(all_episodes):
 
 
 def store_text_episodes(episodes):
+    """
+    Stores structured episodes in the ChromaDB episode_store collection.
+    
+    Converts each episode into a Document with combined text content from title
+    and description, plus all metadata fields. Stores in episode_store for retrieval.
+    
+    Args:
+        episodes (list): List of episode dictionaries with structured travel memory data
+        
+    Returns:
+        None (prints status messages)
+    """
     docs = []
     ids  = []
 
@@ -243,6 +350,20 @@ def store_text_episodes(episodes):
 # image ingestio
 
 def describe_image(image_path, location, hint):
+    """
+    Generates a natural language description of a travel photo using vision LLM.
+    
+    Uses OllamaLLM with image encoding to produce a vivid 3-sentence description
+    of the photo capturing main scene, visual details, and experience type.
+    
+    Args:
+        image_path: Path to the image file
+        location (str): The location where the photo was taken
+        hint (str): Context clue from filename to aid description
+        
+    Returns:
+        str: 3-sentence description of the image, or fallback description on error
+    """
     import ollama  # direct call needed for image support
 
     prompt = f"""You are describing a personal travel photo for a memory retrieval system.
@@ -270,6 +391,18 @@ Be specific and vivid. Start directly with the description."""
 
 
 def ingest_images():
+    """
+    Orchestrates the ingestion of all travel photos into the vector store.
+    
+    Processes each photo file, generates descriptions using vision LLM, creates
+    image episodes with metadata, and stores them in both episode_store and chunk_store.
+    
+    Args:
+        None
+        
+    Returns:
+        list: List of stored episode dicts with episode_id, destination, location, filename, description
+    """
     print(f"\n{'='*55}")
     print(f"  IMAGE INGESTION")
     print(f"{'='*55}")
@@ -345,6 +478,19 @@ def ingest_images():
 
 # Main Pipeline 
 def run_ingestion():
+    """
+    Main pipeline orchestrating the complete ingestion process.
+    
+    Verifies Ollama connectivity, processes all notes files through System A (chunking)
+    and System B (episode extraction), links episodes temporally and thematically,
+    stores episodes in vector database, and processes images. Saves results to JSON files.
+    
+    Args:
+        None
+        
+    Returns:
+        None (prints status and saves files)
+    """
     print("\n" + "="*55)
     print("  MEMORYLENS INGESTION")
     print("="*55)

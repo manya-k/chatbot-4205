@@ -10,7 +10,7 @@ Three variants with deliberately different graph structures:
     - pure LLM from training knowledge only
  
   Variant A: Chunk Retrieval
-    graph: memory_read  -> retrieval  -> answer  -> memory_write  -> latency  -> END
+    graph: memory_read  -> retrieval  (chunks) -> answer  -> memory_write  -> latency  -> END
     - flat 300-word chunk retrieval
     - AgentState memory (read + write)
     - conversation history (last 3 turns)
@@ -58,7 +58,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_core.messages import HumanMessage, AIMessage
 
-# ── Config ────────────────────────────────────────────────────────────────────
+# Config 
 MODEL = "llava"
 
 llm        = OllamaLLM(model=MODEL)
@@ -95,9 +95,16 @@ class AgentState(TypedDict):
 # ============================================================
 def v0_retrieval_node(state: AgentState) -> AgentState:
     """
-    Variant 0: flat chunk retrieval.
-    Same chunk_store as Variant A — retrieval is held constant.
-    This ensures V0 vs VA comparison isolates memory only.
+    Variant 0 retrieval node: retrieves flat text chunks from ChromaDB.
+    
+    Searches chunk_store collection for 5 most similar chunks based on query.
+    This is identical to Variant A retrieval to isolate memory comparison.
+    
+    Args:
+        state (AgentState): Current agent state with 'query' field
+        
+    Returns:
+        AgentState: Updated state with 'retrieved_context' field populated
     """
     results = chunk_store.similarity_search(state["query"], k=5)
     context = "\n\n".join([doc.page_content for doc in results])
@@ -106,9 +113,16 @@ def v0_retrieval_node(state: AgentState) -> AgentState:
 
 def v0_answer_node(state: AgentState) -> AgentState:
     """
-    Variant 0: answer from retrieved context only.
-    No memory prepended. No conversation history.
-    Single-turn stateless response.
+    Variant 0 answer node: generates response from retrieved context only.
+    
+    Answers based solely on retrieved context with no memory or conversation history.
+    Single-turn stateless response without constraint tracking.
+    
+    Args:
+        state (AgentState): Current agent state with 'query' and 'retrieved_context' fields
+        
+    Returns:
+        AgentState: Updated state with 'messages' field containing human and AI messages
     """
     prompt = f"""You are a personalised travel assistant with access to travel memories.
  
@@ -129,6 +143,17 @@ Assistant:"""
  
   
 def v0_latency_node(state: AgentState) -> AgentState:
+    """
+    Variant 0 latency node: records elapsed time for response generation.
+    
+    Calculates time elapsed since start_time and stores in latency field.
+    
+    Args:
+        state (AgentState): Current agent state with 'start_time' field
+        
+    Returns:
+        AgentState: Updated state with 'latency' field populated
+    """
     elapsed = round(time.time() - state.get("start_time", time.time()), 2)
     return {**state, "latency": elapsed}
 
@@ -139,10 +164,14 @@ def v0_latency_node(state: AgentState) -> AgentState:
 # ============================================================
 def memory_read_node(state: AgentState) -> AgentState:
     """
-    Node 1: Memory Read
-    given that the persistant memory is out of the scope of this investigation
-    memory is always stored in agent state as such memory read is not required
-    had added earlier but results showed the inaccurate data so removing 
+    Variants A and B memory read node: placeholder for state pass-through. Uses
+    Memory stored in AgentState only.
+    
+    Args:
+        state (AgentState): Current agent state
+        
+    Returns:
+        AgentState: Unchanged state
     """
     return state 
 
@@ -150,18 +179,19 @@ def memory_read_node(state: AgentState) -> AgentState:
 def retrieval_node(state: AgentState) -> AgentState:
 
     """
-    Node 2: Retrieval 
-    for the retrieval node, the same mechanism is applied for all the variants.
-    for example:
-    - same query text
-    - same k=3
-    - same similarity_search call
-
-    The difference is which ChromaDB collection is searched:
-        Variant A → chunk_store   (flat 300-word chunks, no metadata)
-        Variant B → episode_store (structured episodes with links + metadata)
+    Variants A and B retrieval node: retrieves context from ChromaDB collections.
     
-    This ensures any performance difference is purely due to data structure
+    For Variant A (chunks): searches flat 300-word chunks with no metadata
+    For Variant B (episodes): searches structured episodes with temporal/thematic links and metadata
+    
+    Same k=5 for both variants to isolate the effect of data structure. Prepends known
+    user memory/preferences to context if available.
+    
+    Args:
+        state (AgentState): Current agent state with 'query', 'user_memory', and 'mode' fields
+        
+    Returns:
+        AgentState: Updated state with 'retrieved_context' field containing formatted context
     """
     query = state["query"]
     memory = state["user_memory"]
@@ -202,9 +232,17 @@ def retrieval_node(state: AgentState) -> AgentState:
 
 def answer_node(state: AgentState) -> AgentState:
     """
-    Node 3: Answer
-    Identical for both variants — same prompt structure, same LLM.
-    Only the content of retrieved_context differs.
+    Variants A and B answer node: generates personalized response from context and history.
+    
+    Identical for both variants to isolate data structure effect. Builds context from
+    conversation history (last 6 messages), prepends user memory constraints, and generates
+    response using LLM prompt with strict grounding instructions.
+    
+    Args:
+        state (AgentState): Current agent state with 'query', 'retrieved_context', 'messages', 'user_memory' fields
+        
+    Returns:
+        AgentState: Updated state with 'messages' field appended with new human and AI messages
     """
 
     query   = state["query"]
@@ -249,13 +287,17 @@ Assistant:"""
 
 def memory_write_node(state: AgentState) -> AgentState:
     """
-    Variants A + B.
-    Extracts any new user constraint and stores it in AgentState only.
-    Database write was later removed so that memory resets at end of session.
-    this was done so that both models are evaluated fairly and to avoid the 
-    impacts of structured memory 
-
-    Clean experimental conditions: no cross-run contamination.
+    Variants A and B memory write node: extracts and stores user constraints in AgentState.
+    
+    Prompts LLM to extract personal travel preferences/constraints from user query.
+    Stores up to 8-word constraints in user_memory for multi-turn constraint satisfaction.
+    Database write removed to reset memory per session and ensure fair comparison.
+    
+    Args:
+        state (AgentState): Current agent state with 'query' field
+        
+    Returns:
+        AgentState: Updated state with 'user_memory' field appended if new constraint found
     """
     query = state["query"]
 
@@ -285,20 +327,31 @@ Return the short constraint phrase or NONE:"""
 
 def latency_node(state: AgentState) -> AgentState:
     """
-    Node 5: Latency 
+    Variants A and B latency node: records elapsed time for response generation.
+    
+    Calculates time elapsed since start_time and stores in latency field.
+    
+    Args:
+        state (AgentState): Current agent state with 'start_time' field
+        
+    Returns:
+        AgentState: Updated state with 'latency' field populated
     """
     elapsed = round(time.time() - state.get("start_time", time.time()), 2)
     return {**state, "latency": elapsed}
 
 def build_graph(mode: str):
     """
-    Graph Builder
-
-    for variant 0 (plain):
-        answer -> latency -> end
-
-    for variant A (memory, chunks) and varient B (memory, structure)
-        memory read -> retrieval -> answer -> memory write -> latency -> end
+    Constructs the LangGraph state graph for a given variant.
+    
+    For Variant 0 (plain): retrieval → answer → latency → END
+    For Variants A & B: memory_read → retrieval → answer → memory_write → latency → END
+    
+    Args:
+        mode (str): Variant mode - "plain" for V0, or "chunks"/"episodes" for VA/VB
+        
+    Returns:
+        CompiledGraph: Compiled LangGraph ready for invocation
     """
     graph = StateGraph(AgentState)
     if mode == "plain":
@@ -329,16 +382,38 @@ def build_graph(mode: str):
     return graph.compile()
  
 
-# ── Public API (used by evaluate.py) ─────────────────────────────────────────
 
 def run_turn(state: AgentState, app) -> AgentState:
-    """Run a single turn through the graph. Used by evaluate.py."""
+    """
+    Executes a single turn through the LangGraph agent.
+    
+    Starts timer and invokes the compiled graph with current state.
+    Used by evaluate.py and chat() for multi-turn conversations.
+    
+    Args:
+        state (AgentState): Current conversation state
+        app: Compiled LangGraph application
+        
+    Returns:
+        AgentState: Updated state after graph execution
+    """
     state["start_time"] = time.time()
     return app.invoke(state)
 
 
 def build_initial_state(mode: str) -> AgentState:
-    """Create a fresh state"""
+    """
+    Creates a fresh AgentState for a new conversation.
+    
+    Initializes all state fields to empty/default values. Called at the start
+    of each test case or conversation session.
+    
+    Args:
+        mode (str): Variant mode - "plain", "chunks", or "episodes"
+        
+    Returns:
+        AgentState: Initialized empty state dictionary
+    """
     return AgentState(
         messages          = [],
         query             = "",
@@ -351,6 +426,20 @@ def build_initial_state(mode: str) -> AgentState:
 
 
 def chat(mode: str = "episodes"):
+    """
+    Interactive chat interface for conversing with the agent.
+    
+    Provides REPL for multi-turn conversation with commands:
+    - 'quit': exit the chat
+    - 'memory': display stored user preferences
+    - 'clear': reset conversation state and memory
+    
+    Args:
+        mode (str): Variant to run - "plain", "chunks", or "episodes" (default: "episodes")
+        
+    Returns:
+        None (runs until user quits)
+    """
     labels = {
         "plain": "VARIANT 0: Plain LLM (no memory: base LLM)",
         "chunks":   "VARIANT A: Chunk Retrieval (basic chunk retrieval, and memory)",
