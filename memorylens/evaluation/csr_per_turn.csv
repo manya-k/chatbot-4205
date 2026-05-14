@@ -3,17 +3,17 @@ V1,1,I hate crowded tourist spots,,,
 V1,2,Plan me 3 days in Bali,1.0,1.0,1.0
 V1,3,What food should I try on that trip?,1.0,1.0,1.0
 V2,1,I have a budget of $50 per day,,,
-V2,2,Where should I eat in Singapore?,1.0,1.0,1.0
+V2,2,Where should I eat in Singapore?,0.0,1.0,1.0
 V2,3,Which of those options is cheapest?,1.0,1.0,1.0
 V3,1,I am vegetarian,,,
-V3,2,What can I eat in India based on my trip?,0.0,1.0,1.0
-V3,3,Which city had the best vegetarian food?,0.0,0.0,0.0
+V3,2,What can I eat in India based on my trip?,1.0,1.0,1.0
+V3,3,Which city had the best vegetarian food?,0.0,1.0,1.0
 V4,1,I cannot do physically demanding activities or lon,,,
 V4,2,What should I do in Bali?,1.0,1.0,1.0
 V4,3,What about eating — where do you recommend?,0.0,1.0,1.0
 V5,1,I strongly prefer authentic local experiences over,,,
-V5,2,Recommend me a city to visit in India,1.0,1.0,1.0
+V5,2,Recommend me a city to visit in India,1.0,0.0,1.0
 V5,3,What should I eat there?,1.0,1.0,1.0
 V6,1,I have a tight budget of $40 per day maximum,,,
-V6,2,Which of my trips would you suggest I repeat?,1.0,1.0,1.0
+V6,2,Which of my trips would you suggest I repeat?,1.0,0.0,1.0
 V6,3,What activities can I do there that fit that budge,1.0,1.0,1.0
