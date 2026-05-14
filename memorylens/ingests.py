@@ -342,56 +342,6 @@ def ingest_images():
     return stored_episodes
 
 
-@tool
-def search_chunks(query: str) -> str:
-    """
-    Search System A — retrieves raw text chunks.
-    Used by the baseline variant of the chatbot.
-    """
-    results = chunk_store.similarity_search(query, k=3)
-    return "\n\n".join([doc.page_content for doc in results])
-
-
-@tool
-def search_episodes(query: str) -> str:
-    """
-    Search System B — retrieves structured episodes with metadata.
-    Used by the episodic memory variant of the chatbot.
-    """
-    results = episode_store.similarity_search(query, k=3)
-    context = []
-    for doc in results:
-        meta = doc.metadata
-        context.append(
-            f"[{meta.get('destination','').upper()} — {meta.get('location','')}]\n"
-            f"{doc.page_content}\n"
-            f"Emotion: {meta.get('emotion','')}\n"
-            f"Cost: ${meta.get('cost_aud','?')} AUD\n"
-            f"Linked next: {meta.get('linked_next','')}"
-        )
-    return "\n\n---\n\n".join(context)
-
-@tool
-def search_images(query: str) -> str:
-    """
-    Search image episodes by visual description.
-    Used for cross-modal queries.
-    """
-    results = episode_store.similarity_search(
-        query,
-        k=3,
-        filter={"type": "image_episode"}
-    )
-    context = []
-    for doc in results:
-        meta = doc.metadata
-        context.append(
-            f"[Photo: {meta.get('location','')}]\n"
-            f"{meta.get('image_description','')}\n"
-            f"File: {meta.get('image_filename','')}"
-        )
-    return "\n\n---\n\n".join(context)
-
 
 # Main Pipeline 
 def run_ingestion():
