@@ -38,6 +38,7 @@ import csv
 import argparse
 from pathlib import Path
 import re
+import sys
 from langchain_ollama import OllamaLLM
 
 from chatbot import build_graph, build_initial_state, run_turn
@@ -712,19 +713,6 @@ def run_evaluation(modes: list):
     Returns:
         None (saves files and prints results)
     """
-    print("\n" + "="*65)
-    print("  MEMORYLENS EVALUATION (LLM-as-judge)")
-    print("="*65)
-    print(f"  Variants    : {', '.join(modes)}")
-    # prints number of test cases and breakdown by family
-    print(f"  Test cases  : {len(TEST_SET)} — "
-          f"{len([t for t in TEST_SET if t['family']=='factual'])} factual, "
-          f"{len([t for t in TEST_SET if t['family']=='cross_modal'])} cross-modal, "
-          f"{len([t for t in TEST_SET if t['family']=='multi_hop'])} multi-hop, "
-          f"{len([t for t in TEST_SET if t['family']=='conversational'])} conversational")
-    print(f"  Metrics     : Relevance, Keywords, CSR (per-turn + final), Latency")
-    print(f"  Scoring     : LLM-as-judge (llava)")
-    print(f"  Memory      : AgentState only — resets per test case")
 
     all_results = []
     summaries   = []
@@ -740,14 +728,22 @@ def run_evaluation(modes: list):
     print(f"  Results saved to evaluation/ folder.")
 
 
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="MemoryLens Evaluation")
-    parser.add_argument(
-        "--mode",
-        choices=["plain", "chunks", "episodes", "all"],
-        default="all",
-        help="Which variant to run (default: all)"
-    )
-    args  = parser.parse_args()
-    modes = ["plain", "chunks", "episodes"] if args.mode == "all" else [args.mode]
+    valid_modes = {"plain", "chunks", "episodes", "all"}
+
+    # Default mode
+    mode = "all"
+
+    # Read from command-line args
+    if len(sys.argv) > 1:
+        mode = sys.argv[1]
+
+        if mode not in valid_modes:
+            print(f"Invalid mode: {mode}")
+            print("Usage: python script.py [plain|chunks|episodes|all]")
+            sys.exit(1)
+
+    modes = ["plain", "chunks", "episodes"] if mode == "all" else [mode]
+
     run_evaluation(modes=modes)
