@@ -3,740 +3,36 @@
     {
       "id": "F1",
       "family": "factual",
-      "mode": "plain",
+      "mode": "episodes",
       "turns": [
         {
           "turn": 1,
           "query": "How much did I spend per day in Bali?",
-          "response": " You spent approximately $109 AUD per day in Bali. ",
-          "latency": 4.17,
+          "response": " You spent AUD 35.16 per day in Bali, based on the context provided. This includes the boat trip to Nusa Penida and Kelingking Beach, the dinner at Sardine restaurant and the beach club sunset at Ku De Ta. ",
+          "latency": 4.62,
           "csr": null
         }
       ],
       "final_csr": null,
       "avg_turn_csr": null,
       "csr_detail": {},
-      "relevance": 2,
+      "relevance": 4,
       "keyword_rate": 0.67,
       "keyword_hits": [
         "AUD",
         "Bali"
       ],
-      "avg_latency": 4.17
+      "avg_latency": 4.62
     },
     {
       "id": "F2",
       "family": "factual",
-      "mode": "plain",
+      "mode": "episodes",
       "turns": [
         {
           "turn": 1,
           "query": "What fort did I visit in Jodhpur?",
           "response": " You visited Mehrangarh Fort in Jodhpur. ",
-          "latency": 1.75,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 1.0,
-      "keyword_hits": [
-        "Mehrangarh"
-      ],
-      "avg_latency": 1.75
-    },
-    {
-      "id": "F3",
-      "family": "factual",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How long did the Kelingking Beach hike take?",
-          "response": " Based on the context provided, there is no information about the duration of a hike to Kelingking Beach in Bali. The context only mentions four other locations: Tegallalang rice terraces, ubud monkey forest, tanah lot temple, and canggu echo beach in Bali, as well as Marina in Dubai. ",
-          "latency": 1.99,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 2,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 1.99
-    },
-    {
-      "id": "F4",
-      "family": "factual",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How did I get to Jodhpur?",
-          "response": " Based on the context provided, it seems you have visited Jaipur and not Jodhpur. There are no photos or context indicating your visit to Jodhpur. If you can provide more details about your travel history, I could assist you further. ",
-          "latency": 1.66,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 2,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Jodhpur"
-      ],
-      "avg_latency": 1.66
-    },
-    {
-      "id": "F5",
-      "family": "factual",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How long was the Marina walk in Dubai?",
-          "response": " I'm sorry, but based on the given context, it is not possible to determine the exact duration of a marina walk in Dubai. The photo only shows a serene street scene in Al Fahidi Historical Neighborhood, and there is no specific mention of a marina or its proximity to the photographed location. ",
-          "latency": 2.31,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 2,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Dubai"
-      ],
-      "avg_latency": 2.31
-    },
-    {
-      "id": "F6",
-      "family": "factual",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "What was the highlight experience of my Dubai trip?",
-          "response": " Based on the context provided, it seems that the highlight experience of your Dubai trip was visiting the Al Fahidi Historical Neighborhood and capturing a serene street scene with traditional architecture. The vibrant colors, warm hues, soft focus, shadows cast by buildings, early morning or late afternoon setting, and the perspective from which the photo was taken all contribute to making this location a memorable experience during your travels. ",
-          "latency": 2.57,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 2.57
-    },
-    {
-      "id": "C1",
-      "family": "cross_modal",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Find me a photo I took of a temple in Bali",
-          "response": " To find your photo of a temple in Bali, I need more information. However, based on the context provided, you can refer to the photo of Tanah Lot Temple taken in Bali. The image shows a picturesque view of this famous temple located on the island of Bali in Indonesia. ",
-          "latency": 1.79,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 2,
-      "keyword_rate": 1.0,
-      "keyword_hits": [
-        "temple",
-        "Bali"
-      ],
-      "avg_latency": 1.79
-    },
-    {
-      "id": "C2",
-      "family": "cross_modal",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Which destination had the most dramatic landscape based on my photos?",
-          "response": " Based on the context provided, none of the destinations described \u2014 Al Fahidi Historical Neighborhood in Dubai, Goa Agonda Beach in India, Ubud Monkey Forest in Bali, or Jaipur City Palace in India \u2014 are known for particularly dramatic landscapes. These locations are more associated with historical sites, cultural heritage, and travel experiences rather than dramatic natural scenery. ",
-          "latency": 2.51,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 2,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 2.51
-    },
-    {
-      "id": "C3",
-      "family": "cross_modal",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Show me a photo that I took from any fort in Jodhpur",
-          "response": " Based on the context provided, it seems there are no photos of Jaipur City Palace or Jaipur Pink City. However, as a personalised travel assistant with access to travel memories, if you have any other questions or requests related to your trip, feel free to ask! ",
-          "latency": 2.35,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 2,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 2.35
-    },
-    {
-      "id": "C4",
-      "family": "cross_modal",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Find a photo I took that shows water \u2014 ocean, waterfall, or pool",
-          "response": " Sure, here's the photo of the sea turtles at Crystal Bay in Bali, which you can see while enjoying your favorite meal at the local warung. Please note that this photo was taken on a beach, not a pool. ",
-          "latency": 2.89,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "beach"
-      ],
-      "avg_latency": 2.89
-    },
-    {
-      "id": "C5",
-      "family": "cross_modal",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Based on my photos which destination looked most spiritual or cultural?",
-          "response": " Tanah Lot Temple is likely to have looked the most spiritual or cultural in your photos, as it is a famous Buddhist temple located on the rocky island of Tanah Lot off the coast of Bali. The temple's unique setting and architecture make it an important cultural landmark in Bali. ",
-          "latency": 1.8,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 1.0,
-      "keyword_hits": [
-        "temple",
-        "Bali"
-      ],
-      "avg_latency": 1.8
-    },
-    {
-      "id": "C6",
-      "family": "cross_modal",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Find a photo from my India trip \u2014 what does it show?",
-          "response": " The photo you shared is of Goa Agonda Beach in India. It shows a beautiful beach scene with the clear blue sky, sandy beach, and the sea visible. ",
-          "latency": 1.38,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "India"
-      ],
-      "avg_latency": 1.38
-    },
-    {
-      "id": "M1",
-      "family": "multi_hop",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Which of my trips had the best food to cost ratio?",
-          "response": " Based on the information you provided, it appears that your dinner at a buffet of Arabic food in Dubai had the best food to cost ratio for you. You spent approximately $165 AUD and enjoyed an enormous buffet of mezze, grilled meats, rice dishes, desserts like kunafa, and a memorable stargazing experience in the desert. This combination of an authentic cultural dining experience and the natural beauty of the desert created a unique and unforgettable moment for you. ",
-          "latency": 3.95,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 0.33,
-      "keyword_hits": [
-        "cost"
-      ],
-      "avg_latency": 3.95
-    },
-    {
-      "id": "M2",
-      "family": "multi_hop",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Comparing all my trips which destination was required the most physical effort?",
-          "response": " The destination that required the most physical effort according to your context is Palolem, India. You rode a scooter for 25 minutes and then walked along the beach. Additionally, you tried to get to Dudhsagar Falls via a local jeep tour and when the jeep broke down, you had to wait for 90 minutes in the jungle. This would require more physical effort than other destinations mentioned. ",
-          "latency": 3.68,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 3.68
-    },
-    {
-      "id": "M3",
-      "family": "multi_hop",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "If I had a budget of ONLY $60 per day which of my trips could I repeat?",
-          "response": " Based on the context provided, here are the options for repeating a trip within your budget of $60 per day:\n\n1. Marina in Dubai - This is a travel photo you already have from your trip to Dubai. However, given your budget constraint of $60 per day, it might be challenging to repeat this entire trip as the total cost for two people was $42 SGD, which is more than $60 per day for at least three days.\n\n2. Ubud Monkey Forest in Bali - This is another travel photo you already have from your trip to Bali. The total cost for two people on Budget Day 3 was approximately $185 AUD, which is more than $60 per day. Therefore, it's not feasible to repeat this entire trip within your budget constraint.\n\n3. Goa Agonda Beach in India - This is a travel photo you already have from your trip to India. The exact cost for two people on this particular day isn't provided, but considering the total cost for two people on Budget Day 3 was approximately $185 AUD, it's unlikely that this entire trip can be repeated within your budget constraint of $60 per day.\n\n4. Tegallalang Rice Terraces in Bali - This is a travel photo you already have from your trip to Bali. Given the total cost for two people on Budget Day 3 was approximately $185 AUD, it's not feasible to repeat this entire trip within your budget constraint of $60 per day.\n\nGiven these options, none of your trips can be repeated in full within your budget constraint of $60 per day. However, you could potentially visit the Marina in Dubai for a shorter period or find alternative activities that are more cost-effective to make the most of your daily budget. ",
-          "latency": 7.31,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 1.0,
-      "keyword_hits": [
-        "Bali",
-        "India",
-        "60"
-      ],
-      "avg_latency": 7.31
-    },
-    {
-      "id": "M4",
-      "family": "multi_hop",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Which destination had the best combination of culture and affordability?",
-          "response": " Based on the context provided, I can tell you that Dubai's Al Fahidi Historical Neighborhood is a serene location with rich cultural heritage and architecture, offering a peaceful moment in time for travelers to appreciate. However, without specific information about cost or affordability, it's not possible for me to determine which destination has the best combination of culture and affordability based on the given context. ",
-          "latency": 2.79,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 2.79
-    },
-    {
-      "id": "M5",
-      "family": "multi_hop",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Across all my trips where did I have the most wildlife encounters?",
-          "response": " Based on your travel memories, you had the most wildlife encounters at Ubud Monkey Forest in Bali and Tegallalang Rice Terraces in Bali. These locations are known for their interactions with monkeys and other wildlife that thrive in these areas. ",
-          "latency": 2.08,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Bali"
-      ],
-      "avg_latency": 2.08
-    },
-    {
-      "id": "V1",
-      "family": "conversational",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I hate crowded tourist spots",
-          "response": " If you want to avoid crowded tourist spots while traveling, some cities or areas that you might consider visiting are Ubud and Nusa Penida in Bali, where the user enjoyed the most authentic experience and the most dramatic landscapes. The user also mentioned avoiding Kuta and north Goa due to their high level of tourist chaos. Additionally, in India, the user preferred quieter spots like south Goa over the north and Humayun's Tomb over Red Fort. In Dubai, the user enjoyed old Dubai and the spice souk for a more authentic experience, while avoiding the luxury malls and beach clubs that were expensive and lacked soul. Finally, for food, you might consider visiting Maxwell Food Centre hawker centre in Singapore or trying the nasi campur at the local warung, Ubud night market, berry pulao at Britannia & Co, Mumbai, seekh kabab at Al Ustad, kunafa at the desert camp, daily chicken shawarma, and chicken rice from Tian Tian in Singapore. ",
-          "latency": 6.67,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "Plan me 3 days in Bali",
-          "response": " Based on your preferences and experiences, I would recommend the following itinerary for 3 days in Bali:\n\nDay 1:\n- Morning: Start your day with a visit to Tirta Empul Temple. It's located near Ubud, which aligns with your preference for authentic areas.\n- Afternoon: Head over to Campuhan Ridge Walk for a scenic hike at sunrise or sunset. The views of the island are beautiful and it's a great way to see the local wildlife like monkeys and birds.\n- Evening: Enjoy a delicious nasi campur at the local warung in Ubud. Don't forget to try some Bali street food as well!\n\nDay 2:\n- Morning: Take a day trip to Nusa Penida. Start with a hike to Kelingking Beach for breathtaking views of the island and the sea.\n- Afternoon: Head over to Crystal Bay for some time in nature. You can spot sea turtles here and enjoy the tranquility of the beach.\n- Evening: Return to your accommodation in Ubud and enjoy a traditional Bali dinner at a local restaurant.\n\nDay 3:\n- Morning: Explore the island on a guided tour or rent a scooter to visit some of the lesser-known temples and natural wonders in Bali.\n- Afternoon: Visit Paon Sambal Matah, as suggested by your photo, for an authentic Bali lunch experience.\n- Evening: Relax at a local spa or cafe and enjoy the atmosphere of Ubud.\n\nPlease note that this itinerary is based on your previous preferences and experiences, and you may want to adjust it according to your current needs and energy levels. Enjoy your trip! ",
-          "latency": 8.01,
-          "csr": 1.0
-        },
-        {
-          "turn": 3,
-          "query": "What food should I try on that trip?",
-          "response": " On your trip to Bali, you can try Sate Lilit which is a popular Balinese dish consisting of marinated pork or chicken that is threaded onto skewers. Another famous Balinese cuisine is Nasi Goreng, fried rice that often includes vegetables and sometimes eggs or even chicken. For seafood lovers, you might want to try Jimbaran's Grilled Seafood which features fresh catch of the day. And don't forget to try Babi Guling, a traditional Balinese roasted pig dish from Ubud. ",
-          "latency": 2.67,
-          "csr": 1.0
-        }
-      ],
-      "final_csr": 1.0,
-      "avg_turn_csr": 1.0,
-      "csr_detail": {
-        "avoid crowded places": 1
-      },
-      "relevance": 4,
-      "keyword_rate": 0.33,
-      "keyword_hits": [
-        "Ubud"
-      ],
-      "avg_latency": 5.78
-    },
-    {
-      "id": "V2",
-      "family": "conversational",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I have a budget of $50 per day",
-          "response": " Based on the context provided and assuming that the budget for accommodation is not included in the daily spend, you have a total budget of $350 for the trip. Since there are 14 days in the itinerary, this means you can allocate approximately $25 per day for accommodation expenses. For transportation within India, you might want to consider using local taxis or auto rickshaws, which usually charge by distance or time, rather than taking trains or buses that have fixed fares. This will allow you more flexibility and control over your daily budget. ",
-          "latency": 5.18,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "Where should I eat in Singapore?",
-          "response": " Based on the provided context, you have shared photos of places you visited in Dubai and Bali. However, there is no information given about where to eat in Singapore. Therefore, I'm unable to assist with a specific recommendation for where to eat in Singapore as it doesn't align with the given context. ",
-          "latency": 1.84,
-          "csr": 0.0
-        },
-        {
-          "turn": 3,
-          "query": "Which of those options is cheapest?",
-          "response": " The cheapest option out of the provided context would be Ubud Monkey Forest in Bali. This is a reasonable assumption since I can only provide information based on the given context, and there's no specific information regarding the cost of each location within it. ",
-          "latency": 1.74,
-          "csr": 1.0
-        }
-      ],
-      "final_csr": 1.0,
-      "avg_turn_csr": 0.5,
-      "csr_detail": {
-        "$50 per day budget": 1
-      },
-      "relevance": 3,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 2.92
-    },
-    {
-      "id": "V3",
-      "family": "conversational",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I am vegetarian",
-          "response": " Based on the provided context, here are some responses to your questions:\n\n* Nasi campur at the local warung in Ubud and seekh kabab at Al Ustad in Dubai were the favourite meals of the trip.\n* Kelingking Beach hike and Campuhan Ridge Walk at sunrise in Bali and desert safari with dune bashing, sunset, and stars in Dubai were the favourite experiences of the trip.\n* The biggest surprise of the Bali trip was how spiritual and genuinely Hindu Bali still feels despite the tourism, while the biggest surprise of the Dubai trip was how much genuine history and culture exists in old Dubai.\n* The most physically demanding thing on the Bali trip was the Kelingking hike, while the most memorable experience in Dubai was the desert safari.\n* For a vegetarian user, the nasi campur at the local warung in Ubud is a suitable meal option. ",
-          "latency": 6.48,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "What can I eat in India based on my trip?",
-          "response": " Based on your visit to the Jaipur City Palace, you can try some traditional Indian dishes such as Rajputana Thalis, which is a platter of assorted Rajasthani food items like dal baat churma, laal maas, and ghewar. The cost for a thali at a nearby restaurant could range from INR 300 to INR 800 ($40-$110 USD).\n\nAnother popular dish in Rajasthan is Dal Baati Churma, which consists of wheat flour flatbreads and lentils. The cost for this meal would be around INR 200-350 ($2.70-$4.80 USD) per person at an authentic restaurant.\n\nIf you're in the mood for a quick bite, try some savory snacks like samosas (INR 100-150/$1.30-$2.10 USD), pyaaz kachoris (INR 150-200/$2.10-$2.80 USD), and mirchi badaam (INR 200-300/$2.80-$4.20 USD).\n\nRemember, these are just suggestions based on your travel experience in India. Enjoy your culinary journey! ",
-          "latency": 5.59,
-          "csr": 1.0
-        },
-        {
-          "turn": 3,
-          "query": "Which city had the best vegetarian food?",
-          "response": " Based on the context provided, the question of which city has the best vegetarian food is not directly addressed in the given images. The images showcase different attractions in Jaipur, India; Dubai, UAE; and Bali, Indonesia. Therefore, it's not possible to determine the best city for vegetarian food based on these photos alone. ",
-          "latency": 2.38,
-          "csr": 0.0
-        }
-      ],
-      "final_csr": 0.0,
-      "avg_turn_csr": 0.5,
-      "csr_detail": {
-        "vegetarian": 0
-      },
-      "relevance": 2,
-      "keyword_rate": 0.33,
-      "keyword_hits": [
-        "veg"
-      ],
-      "avg_latency": 4.82
-    },
-    {
-      "id": "V4",
-      "family": "conversational",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I cannot do physically demanding activities or long hikes",
-          "response": " Based on the information provided, it seems that you prefer mid-range accommodation, local cuisine, and quieter spots during your travels. You also enjoy cultural experiences such as a cooking class in Jaipur and visiting historical sites like Humayun's tomb. You are open to trying new things and have been pleasantly surprised by the authenticity of certain areas, even though they might be less popular or commercialized. ",
-          "latency": 5.02,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "What should I do in Bali?",
-          "response": " Based on the travel photos you provided, it seems that you enjoyed exploring different areas of Bali such as Tana Lot Temple, Ubud Monkey Forest, Paon Sambal Matah, Tegallalang Rice Terraces, and Canggu Echo Beach. These places offer unique experiences and activities. \n\nFor example, at Tana Lot Temple, you can enjoy the stunning sunset while watching the temple's silhouette against the sky. At Ubud Monkey Forest, you can interact with monkeys in their natural habitat. Paon Sambal Matah is a restaurant that offers traditional Balinese cuisine, particularly known for its sambal matah dish. Tegallalang Rice Terraces provide an opportunity to appreciate the beautiful scenery of Bali's countryside and indulge in activities like rice planting or cycling. Lastly, Canggu Echo Beach is a perfect spot for relaxation and water sports activities.\n\nIf you are looking for more things to do in Bali, consider visiting Seminyak for its upscale restaurants and trendy shops, exploring the island's cultural heritage by visiting Pura Besakih or Pura Luhur Ulu Watu, or participating in local events like Nyepi Day. Remember to check the travel advisories and restrictions before planning your trip. ",
-          "latency": 5.4,
-          "csr": 1.0
-        },
-        {
-          "turn": 3,
-          "query": "What about eating \u2014 where do you recommend?",
-          "response": " I'm sorry, but the context provided does not include any information on eating recommendations in Bali or Dubai. If you have specific questions about dining in these locations, feel free to ask! ",
-          "latency": 1.47,
-          "csr": 0.0
-        }
-      ],
-      "final_csr": 0.0,
-      "avg_turn_csr": 0.5,
-      "csr_detail": {
-        "no strenuous hiking or physical activities": 0
-      },
-      "relevance": 2,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 3.96
-    },
-    {
-      "id": "V5",
-      "family": "conversational",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I strongly prefer authentic local experiences over touristy places",
-          "response": " Based on the context provided, it seems that you enjoyed more authentic and less commercial areas during your trip. You preferred places like Ubud (Bali), Jodhpur (India), Al Fahidi old Dubai, and Little India and Arab Street (Singapore) which are known for their local charm and culture.\n\nYour budget preference also aligns with this, as you mentioned that you prefer mid-range accommodations and are willing to splurge on unique experiences. This suggests that you appreciate genuine experiences over commercialized or touristy places.\n\nOn the other hand, you mentioned avoiding areas like North Goa (India), Seminyak (Bali), and Kuta (Bali) as they were too touristy for your liking. You also avoided expensive tourist restaurants and opted for local warungs instead, which aligns with your preference for authentic experiences.\n\nIn summary, it seems that you value authenticity and culture over commercialization when it comes to travel experiences. ",
-          "latency": 7.0,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "Recommend me a city to visit in India",
-          "response": " Based on your previous experience and preference for quieter spots like South Goa, I would recommend visiting the city of Cochin (Kochi) in Kerala, India. It is known for its serene beaches, historic waterways, and beautiful Chinese fishing nets. You can also enjoy local cuisine such as Kerala seafood and explore the Jewish synagogue, Portuguese churches, and Fort Kochi. The city offers a perfect blend of natural beauty, culture, and history that you might enjoy. Keep in mind to visit during the monsoon season (June-September) for a more authentic experience and avoid during the peak tourist season or extreme weather conditions. ",
-          "latency": 4.35,
-          "csr": 1.0
-        },
-        {
-          "turn": 3,
-          "query": "What should I eat there?",
-          "response": " In Bali, some popular local dishes to try include Nasi Goreng (fried rice), Babi Guling (spit-roasted suckling pig), Sate Lilit (minced meat satay) and various seafood dishes. The region of Ubud is also famous for its organic vegetarian cuisine. Enjoy your meal! ",
-          "latency": 2.04,
-          "csr": 1.0
-        }
-      ],
-      "final_csr": 1.0,
-      "avg_turn_csr": 1.0,
-      "csr_detail": {
-        "authentic local experiences not tourist traps": 1
-      },
-      "relevance": 4,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "local"
-      ],
-      "avg_latency": 4.46
-    },
-    {
-      "id": "V6",
-      "family": "conversational",
-      "mode": "plain",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I have a tight budget of $40 per day maximum",
-          "response": " Based on the information provided in the trip summary, it appears that your preferred areas in Bali for authenticity and drama are Ubud and Nusa Penida. In terms of experiences, you enjoyed Kelingking Beach hike and the Campuhan Ridge Walk at sunrise. Your favorite meal was nasi campur at the local warung, Ubud night market.\n\nFor a tight budget of $40 per day maximum, you may want to consider the following:\n\n1. Accommodation: Look for mid-range accommodation options such as guesthouses or homestays, which are likely to be more affordable than high-end resorts.\n2. Transportation: Use local transport options like buses and taxis to get around instead of private cars or scooters, which can be expensive to rent.\n3. Food: Stick to eating at local warungs and small restaurants rather than tourist restaurants that may charge more for the same meal.\n4. Activities: Choose activities that are free or low-cost, such as walking tours or temple visits. Avoid high-end activities like private yoga classes or spa treatments.\n5. Sightseeing: Plan your sightseeing around places that offer free or low-cost admission, such as temples and beaches.\n\nRemember to research and compare prices for different options before making any decisions. With a tight budget, it's important to plan carefully to make the most of your trip while staying within your means. ",
-          "latency": 7.82,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "Which of my trips would you suggest I repeat?",
-          "response": " Based on the travel memories you've shared, I would recommend repeating your trip to Al Fahidi Historical Neighborhood in Dubai. This location offers a serene and culturally rich experience, which can be enjoyed at any time of the day as evident from the photo captured during early morning or late afternoon hours. The old city setting with traditional architecture, like stone buildings with wooden beams and tiled roofs, and warm hues in the image make it an appealing destination for a repeat visit. ",
-          "latency": 3.19,
-          "csr": 1.0
-        },
-        {
-          "turn": 3,
-          "query": "What activities can I do there that fit that budget?",
-          "response": " Based on the context provided, it seems you are interested in activities and experiences within your travel budget of approximately $185 AUD per day. Here are some suggestions for destinations mentioned in the context:\n\n1. Marina in Dubai - You can enjoy a relaxing stroll along the marina or take a boat tour to explore the beautiful waterside. The cost of these activities will likely be within your budget.\n\n2. Ubud Monkey Forest in Bali - This is an excellent location for nature and wildlife enthusiasts. Entrance fees are usually reasonable, allowing you to spend time observing the monkeys and exploring the forest.\n\n3. Sentosa - While the user feels that Sentosa could be anywhere, it's possible to find activities that fit within your budget. You can visit the various attractions like beaches, theme parks, or gardens on a budget by planning your day wisely.\n\n4. Jaipur City Palace in India - Explore the city palace and its surroundings at your own pace. This historic site is rich in architecture and cultural significance. Entrance fees are usually moderate, fitting within your budget.\n\n5. Tana Lot Temple in Bali - The temple's entrance fee should be reasonable, and you can spend a couple of hours exploring the area.\n\nRemember to compare prices with local vendors or online platforms for better deals. It's also essential to research the opening times and any additional costs associated with these activities beforehand. This way, you can make the most of your travel experiences while staying within your budget. ",
-          "latency": 6.15,
-          "csr": 1.0
-        }
-      ],
-      "final_csr": 1.0,
-      "avg_turn_csr": 1.0,
-      "csr_detail": {
-        "$40 per day maximum budget": 1
-      },
-      "relevance": 4,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Bali"
-      ],
-      "avg_latency": 5.72
-    },
-    {
-      "id": "F1",
-      "family": "factual",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How much did I spend per day in Bali?",
-          "response": " You spent approximately $107 AUD per day in Bali. ",
-          "latency": 3.89,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.67,
-      "keyword_hits": [
-        "AUD",
-        "Bali"
-      ],
-      "avg_latency": 3.89
-    },
-    {
-      "id": "F2",
-      "family": "factual",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "What fort did I visit in Jodhpur?",
-          "response": " You visited the Mehrangarh Fort in Jodhpur, India. ",
-          "latency": 2.17,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 1.0,
-      "keyword_hits": [
-        "Mehrangarh"
-      ],
-      "avg_latency": 2.17
-    },
-    {
-      "id": "F3",
-      "family": "factual",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How long did the Kelingking Beach hike take?",
-          "response": " I'm sorry, but I cannot provide information about the duration of a specific hike to Kelingking Beach as there is no context or photo provided for that location. If you have any other questions or photos related to Bali, feel free to share and I will do my best to assist you. ",
-          "latency": 2.25,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 1,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 2.25
-    },
-    {
-      "id": "F4",
-      "family": "factual",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How did I get to Jodhpur?",
-          "response": " Based on the context provided, it appears that you didn't visit Jodhpur during your travels. The locations mentioned are Jaipur City Palace in India, Jaipur Pink City in India, Tanah Lot Temple in Bali, Marina in Dubai, and Ubud Monkey Forest in Bali. There is no information about traveling to Jodhpur in the context given. ",
-          "latency": 2.55,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 1,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Jodhpur"
-      ],
-      "avg_latency": 2.55
-    },
-    {
-      "id": "F5",
-      "family": "factual",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How long was the Marina walk in Dubai?",
-          "response": " The context does not provide enough information to determine the length of the Marina walk in Dubai. ",
-          "latency": 1.98,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 1,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Dubai"
-      ],
-      "avg_latency": 1.98
-    },
-    {
-      "id": "F6",
-      "family": "factual",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "What was the highlight experience of my Dubai trip?",
-          "response": " Based on your travel memories, the highlight experience of your Dubai trip seems to be visiting the Al Fahidi Historical Neighborhood. Your photos capture the serene street scene and the historic charm of the area, which showcases an old city setting with traditional architecture. The warm hues and soft focus in your images emphasize the peaceful ambiance of this location, highlighting the rich cultural heritage and beauty of Dubai. ",
           "latency": 3.04,
           "csr": null
         }
@@ -745,20 +41,111 @@
       "avg_turn_csr": null,
       "csr_detail": {},
       "relevance": 4,
+      "keyword_rate": 1.0,
+      "keyword_hits": [
+        "Mehrangarh"
+      ],
+      "avg_latency": 3.04
+    },
+    {
+      "id": "F3",
+      "family": "factual",
+      "mode": "episodes",
+      "turns": [
+        {
+          "turn": 1,
+          "query": "How long did the Kelingking Beach hike take?",
+          "response": " I'm sorry, but I don't have access to the specific duration of the Kelingking Beach hike. However, it can be inferred that the user enjoyed the experience, as they mentioned being humbled by nature. ",
+          "latency": 3.79,
+          "csr": null
+        }
+      ],
+      "final_csr": null,
+      "avg_turn_csr": null,
+      "csr_detail": {},
+      "relevance": 1,
       "keyword_rate": 0.0,
       "keyword_hits": [],
-      "avg_latency": 3.04
+      "avg_latency": 3.79
+    },
+    {
+      "id": "F4",
+      "family": "factual",
+      "mode": "episodes",
+      "turns": [
+        {
+          "turn": 1,
+          "query": "How did I get to Jodhpur?",
+          "response": " Based on the context provided, it seems you are currently in Bali, Indonesia. However, your journey to Jodhpur, India is not described in this context. It appears that you have already spent time in various places such as Ubud, Nusa Penida, and Seminyak in Bali. If you are interested in traveling to Jodhpur, I can provide information about travel options from Bali to Jodhpur, but it would not be based on your personal memories. Would you like to know more about the possible ways to travel from Bali to Jodhpur? ",
+          "latency": 5.6,
+          "csr": null
+        }
+      ],
+      "final_csr": null,
+      "avg_turn_csr": null,
+      "csr_detail": {},
+      "relevance": 3,
+      "keyword_rate": 0.5,
+      "keyword_hits": [
+        "Jodhpur"
+      ],
+      "avg_latency": 5.6
+    },
+    {
+      "id": "F5",
+      "family": "factual",
+      "mode": "episodes",
+      "turns": [
+        {
+          "turn": 1,
+          "query": "How long was the Marina walk in Dubai?",
+          "response": " The Marina walk in Dubai is about 2.7 km and it typically takes around 45 minutes to an hour to walk at a leisurely pace, considering you take your time to enjoy the views and surroundings. ",
+          "latency": 3.56,
+          "csr": null
+        }
+      ],
+      "final_csr": null,
+      "avg_turn_csr": null,
+      "csr_detail": {},
+      "relevance": 2,
+      "keyword_rate": 1.0,
+      "keyword_hits": [
+        "7",
+        "Dubai"
+      ],
+      "avg_latency": 3.56
+    },
+    {
+      "id": "F6",
+      "family": "factual",
+      "mode": "episodes",
+      "turns": [
+        {
+          "turn": 1,
+          "query": "What was the highlight experience of my Dubai trip?",
+          "response": " The highlight experience of your Dubai trip seems to be visiting Global Village, where you spent a significant amount of time. It appears that shopping and exploring the theme park were enjoyable activities for you during your visit. ",
+          "latency": 3.85,
+          "csr": null
+        }
+      ],
+      "final_csr": null,
+      "avg_turn_csr": null,
+      "csr_detail": {},
+      "relevance": 3,
+      "keyword_rate": 0.0,
+      "keyword_hits": [],
+      "avg_latency": 3.85
     },
     {
       "id": "C1",
       "family": "cross_modal",
-      "mode": "chunks",
+      "mode": "episodes",
       "turns": [
         {
           "turn": 1,
           "query": "Find me a photo I took of a temple in Bali",
-          "response": " Sure, here's the photo you took of Tanah Lot temple in Bali:\n\n(Show the appropriate image from the context.) ",
-          "latency": 1.81,
+          "response": " Sure, here's the photo you took at Tah Lot Temple in Bali. Remember your trip to this beautiful destination? Would you like to know more about similar experiences or other places you visited during that time? ",
+          "latency": 3.18,
           "csr": null
         }
       ],
@@ -771,39 +158,39 @@
         "temple",
         "Bali"
       ],
-      "avg_latency": 1.81
+      "avg_latency": 3.18
     },
     {
       "id": "C2",
       "family": "cross_modal",
-      "mode": "chunks",
+      "mode": "episodes",
       "turns": [
         {
           "turn": 1,
           "query": "Which destination had the most dramatic landscape based on my photos?",
-          "response": " Based on your photos, Tegallalang rice terraces in Bali have the most dramatic landscape. The terraced fields and the way they are carved into the mountain create a breathtaking view that stands out from the other locations you've shared. ",
-          "latency": 2.55,
+          "response": " Based on the photo you provided from Tegallalang rice terraces in Bali, it appears that the destination with the most dramatic landscape is Tegallalang. The photo showcases the stunning terraced fields carved into the mountainside, which create a visually striking and dramatic landscape. ",
+          "latency": 4.04,
           "csr": null
         }
       ],
       "final_csr": null,
       "avg_turn_csr": null,
       "csr_detail": {},
-      "relevance": 3,
+      "relevance": 4,
       "keyword_rate": 0.0,
       "keyword_hits": [],
-      "avg_latency": 2.55
+      "avg_latency": 4.04
     },
     {
       "id": "C3",
       "family": "cross_modal",
-      "mode": "chunks",
+      "mode": "episodes",
       "turns": [
         {
           "turn": 1,
           "query": "Show me a photo that I took from any fort in Jodhpur",
-          "response": " I'm sorry, but the context provided does not include any information about the user taking a photo from a fort in Jodhpur. If you have more details or questions about this request, feel free to share! ",
-          "latency": 2.73,
+          "response": " I'm sorry, there seems to be a misunderstanding. The context provided includes Jaipur City Palace in India, but it does not mention Jodhpur or any forts in Jodhpur. If you could provide more details or clarify your request, I would be happy to assist you further. ",
+          "latency": 3.85,
           "csr": null
         }
       ],
@@ -815,18 +202,18 @@
       "keyword_hits": [
         "Jodhpur"
       ],
-      "avg_latency": 2.73
+      "avg_latency": 3.85
     },
     {
       "id": "C4",
       "family": "cross_modal",
-      "mode": "chunks",
+      "mode": "episodes",
       "turns": [
         {
           "turn": 1,
           "query": "Find a photo I took that shows water \u2014 ocean, waterfall, or pool",
-          "response": " The image you've shared is of Kelingking Beach in Bali, and while there isn't visible water in the photo, it is a beach location with the ocean nearby. ",
-          "latency": 3.23,
+          "response": " Based on the context provided, there is no specific photo that you have taken showing water\u2014ocean, waterfall, or pool. However, if you are interested in such photos, here are some options for your next trip:\n\n1. Marina in Dubai - You already have a photo of this location.\n2. Al Fahidi Historical Neighborhood in Dubai - The street view may show a serene waterway.\n3. Palm Jumeirah in Dubai - There are several man-made lakes and pools within the resort complex that you can visit.\n4. Goa Agonda Beach in India - This beach is known for its calm waters and scenic surroundings.\n5. Jaipur City Palace in India - The palace features a large water body that was historically used for royal activities.\n\nPlease let me know if you need more information or if there are any other preferences or constraints for your next travel plans. ",
+          "latency": 6.77,
           "csr": null
         }
       ],
@@ -839,633 +226,7 @@
         "water",
         "beach"
       ],
-      "avg_latency": 3.23
-    },
-    {
-      "id": "C5",
-      "family": "cross_modal",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Based on my photos which destination looked most spiritual or cultural?",
-          "response": " Based on your photos, the destination that appears to have a more spiritual or cultural atmosphere is Tanah Lot Temple in Bali, as indicated by the photo you provided. This location is known for its significant role in Balinese culture and Hinduism. ",
-          "latency": 2.19,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 1.0,
-      "keyword_hits": [
-        "temple",
-        "Bali"
-      ],
-      "avg_latency": 2.19
-    },
-    {
-      "id": "C6",
-      "family": "cross_modal",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Find a photo from my India trip \u2014 what does it show?",
-          "response": " Your photo shows Goa Agonda Beach in India. ",
-          "latency": 1.46,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "India"
-      ],
-      "avg_latency": 1.46
-    },
-    {
-      "id": "M1",
-      "family": "multi_hop",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Which of my trips had the best food to cost ratio?",
-          "response": " Based on the context provided, it seems that your trip to Dubai offered the best food to cost ratio. You mentioned a delicious meal at an enormous buffet with various Arabic dishes, including kunafa for dessert, which you described as one of the most delicious desserts you have ever eaten. The cost of this meal is AED 165, which, when converted from AUD to AED, aligns with your statement about the budget day being 5. Additionally, you mentioned a shawarma from a street stall for AED 15, and a dinner at a beach cafe on Palolem for 1200 rupees (~$22 AUD), which fits well within your daily budget of $185 AUD.\n\nIn conclusion, the food you experienced in Dubai, as well as the variety you had on your trip to India, offered a great balance between cost and enjoyment. ",
-          "latency": 6.02,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.67,
-      "keyword_hits": [
-        "India",
-        "cost"
-      ],
-      "avg_latency": 6.02
-    },
-    {
-      "id": "M2",
-      "family": "multi_hop",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Comparing all my trips which destination was required the most physical effort?",
-          "response": " The destination that required the most physical effort was the trip to Dubai, specifically in relation to your scooter ride to Palolem & Dudhsagar Falls. This included riding a scooter for 25 minutes, which can be physically demanding depending on the distance and road conditions. Additionally, walking around the Global Village area during your unexpectedly fun afternoon might have also involved some physical effort. ",
-          "latency": 4.15,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 4.15
-    },
-    {
-      "id": "M3",
-      "family": "multi_hop",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "If I had a budget of ONLY $60 per day which of my trips could I repeat?",
-          "response": " Based on your travel memories and budget, you could consider repeating the trip to the Marina in Dubai as it fits within your daily budget of $60. The photo from Marina in Dubai was taken at a cost of $42 SGD per day for two people, which falls within your daily budget. Additionally, since you mentioned that the city neighbourhoods felt more real compared to Sentosa, repeating a trip to this location could also provide a more authentic travel experience. ",
-          "latency": 2.96,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.33,
-      "keyword_hits": [
-        "60"
-      ],
-      "avg_latency": 2.96
-    },
-    {
-      "id": "M4",
-      "family": "multi_hop",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Which destination had the best combination of culture and affordability?",
-          "response": " Based on the provided context, it appears that both Al Fahidi Historical Neighborhood in Dubai and Jaipur City Palace in India offer a rich cultural experience at an affordable price. These destinations are known for their historical architecture, local traditions, and serene street scenes, making them ideal options for travelers seeking a balance between culture and affordability. ",
-          "latency": 3.1,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "India"
-      ],
-      "avg_latency": 3.1
-    },
-    {
-      "id": "M5",
-      "family": "multi_hop",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Across all my trips where did I have the most wildlife encounters?",
-          "response": " Based on the context provided, your trip to Bali seems to offer the most wildlife encounters as evidenced by the photos you've shared from Ubud Monkey Forest and Tegallalang rice terraces. These locations are known for their rich biodiversity and opportunities to observe monkeys and other wildlife in a natural habitat. ",
-          "latency": 2.87,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Bali"
-      ],
-      "avg_latency": 2.87
-    },
-    {
-      "id": "V1",
-      "family": "conversational",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I hate crowded tourist spots",
-          "response": " If you're looking to avoid crowded tourist spots, consider visiting Ubud and Nusa Penida in Bali as they are your favourite areas. You mentioned that you found these places most authentic and dramatic. However, please note that Bali can get quite crowded, especially around the popular beaches and temples. To avoid crowds, try to visit during off-peak hours or plan your trip outside of peak tourist season.\n\nFor a more unique experience, consider visiting lesser-known spots in Ubud or Nusa Penida such as the rural countryside, local villages, or even the nearby islands. This way, you can still enjoy the beauty and culture of Bali while avoiding the crowds at popular tourist spots. ",
-          "latency": 6.25,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "Plan me 3 days in Bali",
-          "response": " Based on your preferences and experiences in Bali, I recommend the following itinerary for your 3-day trip:\n\nDay 1: Ubud\n- Start your day early with a visit to the Tegal Wang Temple for sunrise. This temple is less crowded than the famous Tirta Empul Temple.\n- Head to the Ubud Monkey Forest for a unique experience among monkeys in their natural habitat.\n- After lunch, take a leisurely stroll around the local markets and shops in Ubud town. Don't forget to try some nasi campur at the local warung.\n- In the evening, enjoy a traditional Balinese dance performance at a nearby temple or cultural center.\n\nDay 2: Nusa Penida\n- Take an early morning boat tour from Sanur Beach to explore the island of Nusa Penida. Visit the famous Kelingking Beach for an amazing view and some great photo opportunities.\n- Have lunch at one of the local warungs on the island, such as Warung Made or Warung Pondok Semana.\n- In the afternoon, visit the Angel's Billabong Natural Pool and Broken Beach for snorkeling and swimming.\n- Return to Sanur Beach in the evening for a relaxing sunset beach walk.\n\nDay 3: Ubud\n- Spend your day exploring the beautiful rice terraces of Tegallalang and Jatiluw.\n- Have lunch at Paon Bali Kitchen, which serves delicious Balinese cuisine.\n- In the afternoon, take a relaxing yoga or meditation class at one of the many yoga studios in Ubud.\n- End your day with a traditional Balinese massage at a local spa.\n\nRemember to plan your trip outside of peak tourist season and visit during off-peak hours to avoid crowds. Enjoy your trip! ",
-          "latency": 9.72,
-          "csr": 1.0
-        },
-        {
-          "turn": 3,
-          "query": "What food should I try on that trip?",
-          "response": " Based on your previous experiences in Bali, you may want to try some of the following authentic Balinese dishes:\n\n* Nasi Goreng: Fried rice with a variety of ingredients like chicken, shrimp, and vegetables.\n* Babi Guling: Roasted suckling pig served with rice and sambal sauce.\n* Ayam Betut: Bali-style steamed chicken with spicy sauce.\n* Sate Lilit: Grilled minced meat skewers wrapped in banana leaves.\n* Pepesan: Balinese-style grilled vegetables, tofu or tempeh in a banana leaf wrap.\n* Jimbaran style seafood: Fresh seafood cooked in the traditional Balinese way, served with rice and sambal sauce.\n\nThese dishes are not only delicious but also reflect the authentic taste of Bali. Don't forget to try some local fruit such as rambutan, mangosteen, and dragon fruit, as well as a variety of fresh coconuts and juices. Enjoy your gastronomic adventure! ",
-          "latency": 6.84,
-          "csr": 1.0
-        }
-      ],
-      "final_csr": 1.0,
-      "avg_turn_csr": 1.0,
-      "csr_detail": {
-        "avoid crowded places": 1
-      },
-      "relevance": 4,
-      "keyword_rate": 0.33,
-      "keyword_hits": [
-        "local"
-      ],
-      "avg_latency": 7.6
-    },
-    {
-      "id": "V2",
-      "family": "conversational",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I have a budget of $50 per day",
-          "response": " Based on the context provided, it seems you are looking for travel recommendations within your budget. As the rules state that I can only provide information from the context or conversation, I will list some general suggestions based on your previous travels and preferences.\n\n1. Consider visiting places like Ubud (Bali) or Nusa Penida for a more authentic and joyful experience. These destinations are likely to fit within your budget of $50 per day.\n2. Look for local warungs, as you have mentioned that they offer good value meals. Warungs are local eateries where you can find delicious local dishes at affordable prices.\n3. For accommodations, you can opt for mid-range options or stay in budget hotels and hostels to fit your $50 per day budget.\n4. To experience the cultural side of a place, visit Al Fahidi old Dubai and the spice souk, which are some of your favourite areas from your past trips. This will give you an authentic feel without breaking your budget.\n\nPlease note that these suggestions are general and based on your previous preferences and experiences. The actual costs and availability may vary depending on the specific location and time of travel. ",
-          "latency": 8.05,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "Where should I eat in Singapore?",
-          "response": " Based on your photo memories and preferences, here are some recommendations for eating in Singapore:\n\n1. Hawker Centers - Try local dishes like laksa, chicken rice, or rojak at popular hawker centers such as Tiong Bahru Hawker Centre or Maxwell Road Food Centre.\n2. Lau Pa Sat - This is a famous market and food area in the heart of Singapore's business district. Enjoy local street food and satay (grilled skewers) while people-watching.\n3. Soya Bean Curd Stall at Chinatown Complex Food Centre - Try this local specialty for breakfast or as a snack.\n4. Tekka Market - Browse through fresh seafood, vegetables, and other ingredients before heading to a nearby hawker centre to cook your meal.\n5. Newton Food Centre - This outdoor market is famous for its satay and barbecue stalls. Enjoy the vibrant atmosphere while sampling local dishes.\n6. Boat Quay - Enjoy a riverfront dining experience at one of the many restaurants offering Western, Asian, or fusion cuisine.\n\nRemember to visit these places during your travel memories in Singapore to make the most of your culinary adventure. ",
-          "latency": 6.31,
-          "csr": 1.0
-        },
-        {
-          "turn": 3,
-          "query": "Which of those options is cheapest?",
-          "response": " Based on my previous recommendations and taking into account your budget of $50 per day, the cheapest options for eating in Singapore are likely to be hawker centres such as Tiong Bahru Hawker Centre or Maxwell Road Food Centre. Here, you can enjoy a meal with various local dishes at affordable prices. The cost of meals usually ranges between $4 to $10 SGD per dish, making it a budget-friendly option for your daily food expenses. ",
-          "latency": 4.53,
-          "csr": 1.0
-        }
-      ],
-      "final_csr": 1.0,
-      "avg_turn_csr": 1.0,
-      "csr_detail": {
-        "$50 per day budget": 1
-      },
-      "relevance": 3,
-      "keyword_rate": 1.0,
-      "keyword_hits": [
-        "hawker",
-        "maxwell"
-      ],
-      "avg_latency": 6.3
-    },
-    {
-      "id": "V3",
-      "family": "conversational",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I am vegetarian",
-          "response": " It seems you enjoyed a variety of experiences and cuisines on your trips to Bali and Dubai, including local warungs in Bali, Arabic and Middle Eastern food in Dubai, and trying new things like the Kelingking Beach hike and Campuhan Ridge Walk at sunrise. If you're looking for recommendations tailored to your preferences as a vegetarian traveler, consider visiting these places:\n\n1. Ubud (Bali): Explore local warungs and restaurants that offer a range of Indonesian vegetarian dishes. Some popular choices include Bebek Tepi Sawah and Karsa Kafe. Don't miss the sunrise hike to Mount Batur, which offers stunning views over the rice terraces.\n\n2. Dubai: Visit Al Fahidi old Dubai and explore the spice souk for an authentic experience. Try vegetarian dishes at local eateries like Al Ustad or Abyaq Restaurant. Don't forget to take an Abra boat ride, which is a great way to experience traditional life on the Dubai Creek. For more modern experiences, visit The Green Planet, an indoor, human-made rainforest in City Walk, where you can see and interact with a variety of plants and animals, including vegetarian options like monkeys and lemurs.\n\n3. Agonda (Goa): Enjoy the beautiful beaches and try local vegetarian dishes at beach shacks or cafes like the one you visited. If you're interested in wildlife, consider taking a guided tour to spot elephants, birds, and other animals in their natural habitat.\n\nRemember to check the menus and ingredients of the dishes before ordering to ensure they are vegetarian. Safe travels! ",
-          "latency": 10.18,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "What can I eat in India based on my trip?",
-          "response": " Based on your trip, it seems you enjoyed traditional Indian cuisine during your visit to Jaipur City Palace. In India, there are many delicious vegetarian dishes available. Some popular choices include:\n\n1. Rajasthani Thali - a traditional meal from Rajasthan consisting of roti (flatbread), dal (lentil soup), and various other vegetables or paneer (Indian cheese).\n2. Navratan Korma - a rich, creamy dish made with nine types of vegetables or paneer and spices.\n3. Aloo Gobi - a classic Indian vegetarian dish featuring potatoes and cauliflower in a mildly spiced sauce.\n4. Paneer Butter Masala - a popular Indian vegetarian dish made with paneer, butter, and a rich sauce.\n5. Indian breads such as roti, naan, or paratha (stuffed flatbread) can be enjoyed with your choice of vegetarian curry.\n\nWhen traveling in India, you may find that some dishes are vegetarian by default, while others may need to be requested as vegetarian options. Always check the menu and ingredients before ordering to ensure they are vegetarian. Enjoy your trip! ",
-          "latency": 6.99,
-          "csr": 1.0
-        },
-        {
-          "turn": 3,
-          "query": "Which city had the best vegetarian food?",
-          "response": " Based on the context provided, which includes photos of Jaipur City Palace and Al Fahidi Historical Neighborhood, it seems you enjoyed various types of vegetarian food during your travels. However, without more information about your experiences with different cities' vegetarian cuisine, it is not possible for me to definitively determine which city had the best vegetarian food according to your preferences.\n\nTo give you a personalized recommendation, I would need additional context or feedback from your past trips and experiences. Feel free to share more details about your favorite vegetarian dishes or restaurants from your travels so that I can provide tailored recommendations for you. ",
-          "latency": 5.77,
-          "csr": 1.0
-        }
-      ],
-      "final_csr": 0.0,
-      "avg_turn_csr": 1.0,
-      "csr_detail": {
-        "vegetarian": 0
-      },
-      "relevance": 3,
-      "keyword_rate": 0.33,
-      "keyword_hits": [
-        "veg"
-      ],
-      "avg_latency": 7.65
-    },
-    {
-      "id": "V4",
-      "family": "conversational",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I cannot do physically demanding activities or long hikes",
-          "response": " Based on your travel history and preferences, it seems you have enjoyed a variety of experiences that involve exploring local culture and cuisine. Since you prefer quieter spots and authentic areas, you might want to consider visiting places like the Al Fahidi old Dubai and the spice souk in Dubai, where you can experience traditional Arabic life. Alternatively, you could visit Jodhpur or the Jehangir Art Gallery in Mumbai for a more cultural experience.\n\nFor your next trip, consider a location that offers a rich cultural experience without demanding physically challenging activities. The desert safari in Dubai could be a unique and memorable experience, but if you're looking for something less intense, you might want to explore more of the local cuisine or visit a traditional market like the one in Little India or Arab Street.\n\nRemember to factor in your budget constraints when planning your next trip. As you mentioned, eating at local hawker centres can keep food costs low while still offering an authentic taste of the place. ",
-          "latency": 7.91,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "What should I do in Bali?",
-          "response": " Given your preferences for cultural experiences and avoidance of physically demanding activities, Bali offers several options that align with your interests. Based on your travel history and preferences, you might want to consider visiting places like the Tegallalang rice terraces, where you can appreciate the natural beauty of Bali while strolling along the paths. Additionally, you could explore more of local cuisine or visit a traditional market like Pasar Traditional Market. The Taman Ayun Temple in Ubud is another great option for experiencing Bali's rich cultural heritage. Keep in mind that these activities are relatively low-impact and should be enjoyable within your constraints. ",
-          "latency": 4.25,
-          "csr": 1.0
-        },
-        {
-          "turn": 3,
-          "query": "What about eating \u2014 where do you recommend?",
-          "response": " Based on your preferences, exploring local cuisine is a great way to experience the authentic taste of Bali without engaging in physically demanding activities. You might want to consider visiting places like Warung Nasi Ayam Kembang Kuning in Ubud or Bebek Bengil Dirty Duck Diner in Canggu for an unforgettable dining experience. Additionally, you could try some traditional Balinese snacks like nasi tumpeng and tempeh goreng from local markets or street food stalls. Don't forget to ask locals for recommendations, as they can provide insights into hidden gems that may not be on the tourist map. ",
-          "latency": 4.59,
-          "csr": 1.0
-        }
-      ],
-      "final_csr": 1.0,
-      "avg_turn_csr": 1.0,
-      "csr_detail": {
-        "no strenuous hiking or physical activities": 1
-      },
-      "relevance": 3,
-      "keyword_rate": 0.67,
-      "keyword_hits": [
-        "Ubud",
-        "warung"
-      ],
-      "avg_latency": 5.58
-    },
-    {
-      "id": "V5",
-      "family": "conversational",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I strongly prefer authentic local experiences over touristy places",
-          "response": " Based on your preferences, I would suggest you consider the following destinations for your next trip:\n\n1. Jodhpur, India - as mentioned in your context, it was your favorite city and you loved the authentic experience.\n2. Ubud, Bali - this is one of the most authentic areas in Bali and also a place where you felt the spiritual and genuinely Hindu atmosphere.\n3. Old Dubai, UAE - this is an area that reflects the most authentic history and culture of Dubai.\n4. Little India and Arab Street in Singapore - these are neighborhoods with a strong local identity and atmospheric vibe.\n\nFor your next trip, you might want to explore one of these destinations in more depth or combine them with other local experiences to create a truly authentic journey. ",
-          "latency": 7.08,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "Recommend me a city to visit in India",
-          "response": " Based on your preferences for authentic local experiences and considering that Jodhpur was your favorite city during your last trip to India, I would recommend visiting Jaipur, India next. Jaipur is known as the Pink City and it has a rich history and culture that you can experience in an authentic way. You might also want to consider exploring other destinations in Rajasthan like Udaipur or Jaisalmer for more local experiences. ",
-          "latency": 4.72,
-          "csr": 0.0
-        },
-        {
-          "turn": 3,
-          "query": "What should I eat there?",
-          "response": " In Jaipur, India, you must try the local cuisine which is a mix of traditional Indian dishes and the regional specialty known as Rajasthani cuisine. Some popular dishes include Dal Bati Churma, Gatte ki Sabzi, Papadum, and Rajasthani Korma. There are also various street food options available, like Samosas, Mirchi Vada Pav, and Aloo Tikki. Don't forget to try the local sweets, such as Mawa Jalebi, Ghewar, and Bal Mithai, which are a must-have in Jaipur. Enjoy your gastronomic adventure! ",
-          "latency": 4.51,
-          "csr": 1.0
-        }
-      ],
-      "final_csr": 1.0,
-      "avg_turn_csr": 0.5,
-      "csr_detail": {
-        "authentic local experiences not tourist traps": 1
-      },
-      "relevance": 4,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "local"
-      ],
-      "avg_latency": 5.44
-    },
-    {
-      "id": "V6",
-      "family": "conversational",
-      "mode": "chunks",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "I have a tight budget of $40 per day maximum",
-          "response": " Given your budget of $40 per day and your preference for authentic experiences such as local warungs and nasi campur, as well as the Campuhan Ridge Walk at sunrise in Ubud, it seems that Bali is a great option for you. However, keep in mind that Seminyak might not align with your budget and interests.\n\nIn Ubud, there are many warungs where you can enjoy local cuisine such as nasi campur at an affordable price. Additionally, the Campuhan Ridge Walk at sunrise is a must-do experience which is free of charge. \n\nFor accommodation, consider mid-range guesthouses or homestays that offer good value for money. This will allow you to stay within your budget while still enjoying the comforts and hospitality of Bali.\n\nRemember to be cautious about spending at tourist restaurants in Seminyak as they might be pricier than local warungs. Instead, opt for local eateries to enjoy authentic Balinese cuisine without breaking your budget. ",
-          "latency": 6.91,
-          "csr": null
-        },
-        {
-          "turn": 2,
-          "query": "Which of my trips would you suggest I repeat?",
-          "response": " Given that you have already visited Ubud and enjoyed the Campuhan Ridge Walk at sunrise and local warungs, I would suggest repeating this trip if it was a memorable experience for you. You can revisit your favorite spots, try new dishes, or even explore other parts of Ubud on your return visit. The unique culture, stunning scenery, and rich history of Ubud make it an ideal destination to revisit and create more beautiful memories. ",
-          "latency": 4.19,
-          "csr": 0.0
-        },
-        {
-          "turn": 3,
-          "query": "What activities can I do there that fit that budget?",
-          "response": " In Bali, you can enjoy several activities that align with your tight budget of $40 per day while still being authentic and enjoyable. Some suggestions include:\n\n1. Visit the Ubud Monkey Forest: This is a must-see attraction in Ubud, where you can observe the monkeys up close in their natural habitat. The entrance fee is around $7 USD per person.\n2. Explore the Tegal Kerta Market: This local market offers a wide range of products including clothing, handicrafts, and souvenirs at affordable prices. You can bargain for better deals and find unique items to bring back home.\n3. Go on a rice field trek: Ubud is famous for its terraced rice fields, and you can explore them by joining a guided trekking tour. This activity usually costs around $10 USD per person.\n4. Join a cooking class: Bali is known for its delicious cuisine, and participating in a cooking class will allow you to learn about local ingredients and techniques while also enjoying a meal. The cost of a cooking class varies depending on the location and duration, but it is usually around $20 USD per person.\n5. Relax at a beach: While Seminyak might not align with your budget and interests, there are several beaches in Bali that offer stunning views and activities for free or at an affordable price. For example, you can visit Kuta Beach, which is popular among locals and tourists alike.\n\nRemember to also check for any ongoing promotions or discounts, as these can help you save money on your activities. ",
-          "latency": 7.73,
-          "csr": 1.0
-        }
-      ],
-      "final_csr": 1.0,
-      "avg_turn_csr": 0.5,
-      "csr_detail": {
-        "$40 per day maximum budget": 1
-      },
-      "relevance": 4,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Bali"
-      ],
-      "avg_latency": 6.28
-    },
-    {
-      "id": "F1",
-      "family": "factual",
-      "mode": "episodes",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How much did I spend per day in Bali?",
-          "response": " You spent AUD 106.50 per day in Bali. ",
-          "latency": 3.12,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.67,
-      "keyword_hits": [
-        "AUD",
-        "Bali"
-      ],
-      "avg_latency": 3.12
-    },
-    {
-      "id": "F2",
-      "family": "factual",
-      "mode": "episodes",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "What fort did I visit in Jodhpur?",
-          "response": " Based on the context provided, you visited Mehrangarh Fort in Jodhpur. It is one of the most important and frequent destinations for tourists visiting Jodhpur. ",
-          "latency": 2.92,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 2,
-      "keyword_rate": 1.0,
-      "keyword_hits": [
-        "Mehrangarh"
-      ],
-      "avg_latency": 2.92
-    },
-    {
-      "id": "F3",
-      "family": "factual",
-      "mode": "episodes",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How long did the Kelingking Beach hike take?",
-          "response": " The context does not provide information about the duration of the Kelingking Beach hike. It only mentions that you hiked to Kelingking Beach and then swam in clear turquoise water. If you have any other questions or need assistance with something else, feel free to ask! ",
-          "latency": 3.28,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 1,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 3.28
-    },
-    {
-      "id": "F4",
-      "family": "factual",
-      "mode": "episodes",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How did I get to Jodhpur?",
-          "response": " Based on the context provided, it seems that you visited Bali and then went to Ubud and Seminyak, but there is no information about how you got to Jodhpur. The last place mentioned in the context is Seminyak, which is located in Bali. If you would like assistance planning a trip from another location or need information on how to get to Jodhpur, please let me know and I will be happy to help! ",
-          "latency": 4.04,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 2,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Jodhpur"
-      ],
-      "avg_latency": 4.04
-    },
-    {
-      "id": "F5",
-      "family": "factual",
-      "mode": "episodes",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "How long was the Marina walk in Dubai?",
-          "response": " Based on the context provided, there is no specific information about the duration of the Marina walk in Dubai. However, considering the location and nature of the place, it can be assumed that a leisurely walk around the Marina could take between 1 to 2 hours depending on personal pace and interest in exploring the area further. Please note that this is an estimate and actual time may vary. ",
-          "latency": 3.49,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Dubai"
-      ],
-      "avg_latency": 3.49
-    },
-    {
-      "id": "F6",
-      "family": "factual",
-      "mode": "episodes",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "What was the highlight experience of my Dubai trip?",
-          "response": " Based on your travel memories, the highlight experience of your Dubai trip seems to be visiting Global Village and buying last-minute gifts at the spice souk. This is reflected in your notes about \"walking along the Marina promenade watching yachts and spotted a superyacht with a helicopter landing pad\" and \"bought a small bottle of Oud perfume at the duty free.\" The mention of the desert justifying the trip also suggests that this experience was particularly memorable for you. ",
-          "latency": 4.18,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "desert"
-      ],
-      "avg_latency": 4.18
-    },
-    {
-      "id": "C1",
-      "family": "cross_modal",
-      "mode": "episodes",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Find me a photo I took of a temple in Bali",
-          "response": " Here's the photo you took at Tanah Lot Temple in Bali. It was taken on August 17, 2023, and it costs AUD 50. The photo is tagged with \"tanah,\" \"lot,\" and \"temple.\" Enjoy your memory of this beautiful Balinese landmark! ",
-          "latency": 2.99,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 5,
-      "keyword_rate": 1.0,
-      "keyword_hits": [
-        "temple",
-        "Bali"
-      ],
-      "avg_latency": 2.99
-    },
-    {
-      "id": "C2",
-      "family": "cross_modal",
-      "mode": "episodes",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Which destination had the most dramatic landscape based on my photos?",
-          "response": " Based on your photos, the destination with the most dramatic landscape appears to be the Tegallalang rice terraces in Bali. The terraces are built into steep hillslides, providing a breathtaking view and a unique perspective of the surrounding area. ",
-          "latency": 3.14,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 0.0,
-      "keyword_hits": [],
-      "avg_latency": 3.14
-    },
-    {
-      "id": "C3",
-      "family": "cross_modal",
-      "mode": "episodes",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Show me a photo that I took from any fort in Jodhpur",
-          "response": " Here is a photo you took from Mehrangarh Fort in Jodhpur, India. ",
-          "latency": 2.22,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 1.0,
-      "keyword_hits": [
-        "Jodhpur",
-        "mehrangarh"
-      ],
-      "avg_latency": 2.22
-    },
-    {
-      "id": "C4",
-      "family": "cross_modal",
-      "mode": "episodes",
-      "turns": [
-        {
-          "turn": 1,
-          "query": "Find a photo I took that shows water \u2014 ocean, waterfall, or pool",
-          "response": " Based on your previous travel memories, the photo you are looking for is most likely from the marina in Dubai. This image depicts water, as it is set in a large body of water where yachts and boats are docked. ",
-          "latency": 3.06,
-          "csr": null
-        }
-      ],
-      "final_csr": null,
-      "avg_turn_csr": null,
-      "csr_detail": {},
-      "relevance": 3,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "water"
-      ],
-      "avg_latency": 3.06
+      "avg_latency": 6.77
     },
     {
       "id": "C5",
@@ -1475,8 +236,8 @@
         {
           "turn": 1,
           "query": "Based on my photos which destination looked most spiritual or cultural?",
-          "response": " Based on the context provided, it seems that both Tegallalang rice terraces and Tanah Lot temple have elements of spirituality and culture. However, if you are looking for a place with a more comprehensive mix of spiritual and cultural aspects, I would suggest visiting Tegallalang rice terraces in Bali. The terraced landscape and the way of life it supports give it a unique cultural atmosphere that complements its spiritual significance. ",
-          "latency": 3.34,
+          "response": " Based on your travel photos, the Tegallalang rice terraces in Bali appear to be the most spiritual and cultural destination. This is evident from the tags \"Tanah\", \"Lot\", \"Temple\" attached to the photo taken at Tah Lot Temple, which are synonymous with spirituality and culture in Bali. However, it's worth noting that all these destinations offer unique experiences that showcase the rich cultural heritage of their respective countries. ",
+          "latency": 4.29,
           "csr": null
         }
       ],
@@ -1489,7 +250,7 @@
         "temple",
         "Bali"
       ],
-      "avg_latency": 3.34
+      "avg_latency": 4.29
     },
     {
       "id": "C6",
@@ -1499,8 +260,8 @@
         {
           "turn": 1,
           "query": "Find a photo from my India trip \u2014 what does it show?",
-          "response": " The photo shows Agonda Beach in Goa, India. ",
-          "latency": 2.01,
+          "response": " The photo you've shared shows the Agonda Beach in Goa, India. It appears to be taken during your visit to India. ",
+          "latency": 2.75,
           "csr": null
         }
       ],
@@ -1512,7 +273,7 @@
       "keyword_hits": [
         "India"
       ],
-      "avg_latency": 2.01
+      "avg_latency": 2.75
     },
     {
       "id": "M1",
@@ -1522,20 +283,21 @@
         {
           "turn": 1,
           "query": "Which of my trips had the best food to cost ratio?",
-          "response": " The trip with the best food-to-cost ratio was the one in Singapore, specifically when you were at Colonial District and Hawker Deep Dive. You mentioned that you found Singapore's food scene to be world class at every price point, which suggests that you had good value for money from your food experiences there. ",
-          "latency": 3.98,
+          "response": " Based on your context, it appears that Singapore's Colonial District and Hawker Deep Dive had the best food to cost ratio. You mentioned that you found Singapore's food scene world class at every price point. Additionally, this trip had a lower total cost compared to your other trips, such as Bali or Sentosa. ",
+          "latency": 4.89,
           "csr": null
         }
       ],
       "final_csr": null,
       "avg_turn_csr": null,
       "csr_detail": {},
-      "relevance": 4,
-      "keyword_rate": 0.33,
+      "relevance": 3,
+      "keyword_rate": 0.67,
       "keyword_hits": [
+        "Bali",
         "cost"
       ],
-      "avg_latency": 3.98
+      "avg_latency": 4.89
     },
     {
       "id": "M2",
@@ -1545,20 +307,20 @@
         {
           "turn": 1,
           "query": "Comparing all my trips which destination was required the most physical effort?",
-          "response": " Based on your travel memories, the destination that required the most physical effort seems to be Nusa Penida. You mentioned hiking Kelingking Beach and swimming in clear turquoise water, which suggests that you had to exert some effort to reach the beach and enjoy the activities there. ",
-          "latency": 3.77,
+          "response": " Nusa Penida, Bali, Indonesia. ",
+          "latency": 3.52,
           "csr": null
         }
       ],
       "final_csr": null,
       "avg_turn_csr": null,
       "csr_detail": {},
-      "relevance": 3,
+      "relevance": 2,
       "keyword_rate": 1.0,
       "keyword_hits": [
         "Nusa Penida"
       ],
-      "avg_latency": 3.77
+      "avg_latency": 3.52
     },
     {
       "id": "M3",
@@ -1568,20 +330,20 @@
         {
           "turn": 1,
           "query": "If I had a budget of ONLY $60 per day which of my trips could I repeat?",
-          "response": " Given your budget of $60 per day, you could consider repeating the trip to Nusa Penida. The cost for that trip was only $73 AUD, and it appears to be a nature-based adventure. Additionally, the photo from Ubud Monkey Forest is also a nature-based experience, but it would require additional funds beyond your daily budget to cover the costs. ",
-          "latency": 3.58,
+          "response": " Given your budget of $60 per day, you would not be able to repeat any of the trips listed in the context. The most expensive trip listed was at Universal Studios Singapore on Day 3, with a cost of AUD 185. This is significantly more than your daily budget of $60. To plan a future trip that fits within this budget, you may need to consider destinations and activities that have lower costs. ",
+          "latency": 4.57,
           "csr": null
         }
       ],
       "final_csr": null,
       "avg_turn_csr": null,
       "csr_detail": {},
-      "relevance": 4,
+      "relevance": 2,
       "keyword_rate": 0.33,
       "keyword_hits": [
         "60"
       ],
-      "avg_latency": 3.58
+      "avg_latency": 4.57
     },
     {
       "id": "M4",
@@ -1591,18 +353,18 @@
         {
           "turn": 1,
           "query": "Which destination had the best combination of culture and affordability?",
-          "response": " Based on the context provided, it seems that the Al Fahidi Historical Neighborhood in Dubai offers a great blend of culture and affordability. The photo showcases traditional architecture and rich cultural heritage, while the cost in AUD is not mentioned explicitly. This destination could be an excellent choice for travelers seeking to explore and appreciate historic sites without breaking the bank. ",
-          "latency": 3.81,
+          "response": " Based on the context you provided, Al Fahidi Historical Neighborhood in Dubai seems to offer a good balance between culture and affordability. The image showcases traditional architecture and historic charm, while the fact that you were able to capture a serene street scene suggests it might be less crowded than some other popular tourist destinations. Additionally, Dubai is known for its cost-effective shopping options and various cultural experiences such as visiting the Al Fahidi neighborhood itself or exploring the nearby Souk Al Bahar, which offers a glimpse into traditional Emirati culture through its handicrafts, clothing, and perfumes. However, it's important to note that affordability can be subjective and may vary depending on individual preferences and spending habits. ",
+          "latency": 6.21,
           "csr": null
         }
       ],
       "final_csr": null,
       "avg_turn_csr": null,
       "csr_detail": {},
-      "relevance": 2,
+      "relevance": 4,
       "keyword_rate": 0.0,
       "keyword_hits": [],
-      "avg_latency": 3.81
+      "avg_latency": 6.21
     },
     {
       "id": "M5",
@@ -1612,8 +374,8 @@
         {
           "turn": 1,
           "query": "Across all my trips where did I have the most wildlife encounters?",
-          "response": " Based on your travel memories, you had the most wildlife encounters at Nusa Penida. Specifically, you saw sea turtles at Crystal Bay and observed marine life while snorkeling in Angel's Billabong. ",
-          "latency": 3.69,
+          "response": " Based on your travel memories, you had the most wildlife encounters at Nusa Penida. You swam in Angel's Billabong and saw sea turtles at Crystal Bay, which are typical marine life sightings in the area. ",
+          "latency": 4.42,
           "csr": null
         }
       ],
@@ -1625,7 +387,7 @@
       "keyword_hits": [
         "turtle"
       ],
-      "avg_latency": 3.69
+      "avg_latency": 4.42
     },
     {
       "id": "V1",
@@ -1635,22 +397,22 @@
         {
           "turn": 1,
           "query": "I hate crowded tourist spots",
-          "response": " It seems like you've been to some beautiful and adventurous places! Based on your travel memories, it sounds like you've had a great time exploring different locations. If you're looking for recommendations on less crowded tourist spots, I can suggest a few places from your context:\n\n1. Nusa Penida: While Kelingking Beach is known to be a bit crowded, there are other parts of Nusa Penida that are less frequented by tourists. For example, Angel's Billabong or Atuh Beach might offer a more tranquil experience.\n2. Goa Agonda Beach: Although it is one of the most popular beaches in Goa, you can still find quieter areas away from the main tourist spots. Exploring nearby villages like Arambol, Ashvem, or Galgibaga Beach might give you a more authentic local experience.\n3. Sentosa Island, Universal Studios Singapore: If you're looking for less crowded alternatives in Singapore, consider visiting Pulau Ubin, a small island just off the coast of mainland Singapore, known for its quaint village, kampong houses, and rich history. Another option is to explore the lesser-known parks like Bukit Timah Nature Reserve or Labrador Nature Reserve, which offer beautiful hikes and nature trails.\n4. Ubud Monkey Forest: While this place can get crowded during peak hours, you can visit in the early morning or late afternoon when it's less busy. Alternatively, consider visiting other similar monkey sanctuaries in Bali like the Monkey Temple at Alas Kedaton or the Sacred Monkey Forest Sanctuary at Ullen Sentosa.\n\nRemember to research the best times to visit these places to avoid crowds. Enjoy your future travels! ",
-          "latency": 8.38,
+          "response": " Based on your travel history and preferences, I can suggest some off-the-beaten-path locations for you. In Bali, you can visit the nearby village of Ubud to explore the Rice Terraces and enjoy the tranquility away from the crowds. You might also like to check out the Tegal Wang River Rafting in Balinese forests or visit the serene Gitgit Waterfall in the northern part of Bali.\n\nIn Dubai, you can consider exploring the offshore islands like Palm Jumeirah or Sir Bani Yas Island for a more relaxed experience. Alternatively, you could also venture into the desert and spend an evening at a traditional Bedouin camp.\n\nFor India, you can head to Agonda Beach in Goa, which is less crowded than the popular Calangute or Anjuna Beach. You might also enjoy visiting the peaceful beaches of Ganpatipule, Murud or Tarkarli in Ratnagiri district or explore the serene backwaters of Kerala state.\n\nIn Singapore, you can take a day trip to the Southern Islands and enjoy a more secluded beach experience at Lazarus Island or St John's Island. If you prefer urban explorations, you could visit the less crowded neighborhoods like Tiong Bahru, Joo Chiat or Kampong Glam for a unique cultural experience.\n\nRemember to check the local conditions and travel restrictions before planning your trip to any of these destinations. ",
+          "latency": 9.3,
           "csr": null
         },
         {
           "turn": 2,
           "query": "Plan me 3 days in Bali",
-          "response": " Based on your preferences and travel memories, here is a suggested itinerary for 3 days in Bali:\n\nDay 1:\n- Morning: Visit Tegallalang rice terraces for breathtaking views of the rice fields.\n- Afternoon: Head to Ubud to explore the town and visit the Sacred Monkey Forest Sanctuary.\n- Evening: Relax at Campuhan Ridge Walk, enjoy the sunset at Uluwatu Temple or have a peaceful dinner in Ubud.\n\nDay 2:\n- Morning: Take a day trip to Nusa Penida. Visit Kelingking Beach early in the morning to avoid crowds and enjoy the clear turquoise waters.\n- Afternoon: Return to Bali and spend some time exploring Paon Bamboo Village or visiting the Tirta Empil Temple.\n- Evening: Have a traditional Balinese dinner at a local restaurant in Ubud.\n\nDay 3:\n- Morning: Take a cooking class or visit the local market in Ubud to experience the local culture and cuisine.\n- Afternoon: Visit Tanah Lot Temple for stunning views of the ocean and the temple itself.\n- Evening: Relax at Jimbaran Beach or have a spa day at one of Bali's famous spas.\n\nRemember, these are just suggestions, so feel free to adjust the itinerary based on your preferences and interests. Enjoy your trip! ",
-          "latency": 8.54,
+          "response": " Based on your preferences, here's a suggested itinerary for three days in Bali:\n\nDay 1:\n- Start the day with a relaxing morning at Tegallalang rice terraces, taking in the stunning views and capturing some memorable photos.\n- In the afternoon, head to Ubud and visit the nearby village of Campuhan or explore the serene Ubud Waterfall for a refreshing dip in the water.\n- End the day with a traditional Balinese dinner at Paon Sambal Matah restaurant.\n\nDay 2:\n- Spend the morning hiking to Kelingking Beach and enjoy some quiet time on the clear turquoise waters.\n- In the afternoon, head back to Ubud and visit the Tirta Empul temple or take a traditional cooking class to learn more about Balinese cuisine.\n- Finish the day with a sunset yoga session at one of Ubud's many yoga studios.\n\nDay 3:\n- Start the day with a visit to the Gitgit Waterfall in the northern part of Bali for a refreshing morning swim.\n- In the afternoon, head back to Ubud and explore the local markets or art galleries for some unique souvenirs and keepsakes.\n- End the day with a traditional Balinese massage at one of the many spas in Ubud.\n\nRemember to check the local conditions and travel restrictions before planning your trip to any of these destinations. ",
+          "latency": 10.64,
           "csr": 1.0
         },
         {
           "turn": 3,
           "query": "What food should I try on that trip?",
-          "response": " Bali offers a diverse range of culinary experiences, from street food to fine dining. Based on your travel memories, here are some dishes you might want to try:\n\n1. Nasi Goreng: This fried rice dish is a staple in Indonesian cuisine and is often served with various side dishes like sambal, peanuts, or fried eggs.\n2. Sate Lilit: These skewers made from minced meat, coconut milk, spices, and sometimes vegetables are a popular street food in Bali.\n3. Babi Guling: This slow-roasted suckling pig is a signature dish of Bali, known for its crispy skin and succulent meat.\n4. Pepesan: A vegetarian dish made with eggplants, tempeh, or tofu, pepesan is often found in street food stalls and warungs (small local restaurants).\n5. Martabak Manis: For dessert lovers, this sweet pancake filled with sugar and spices is a must-try.\n6. Mie Goreng: Similar to nasi goreng but made from egg noodles instead of rice, mie goreng can be found at many local eateries and street food stalls.\n7. Es Campur: This cold fruit salad is perfect for hot days in Bali and often includes ingredients like bananas, apples, and mangoes mixed with coconut water or ice.\n\nRemember to try the local rice wines, such as Bali honyoku, baliwine, or arak wine, and enjoy your culinary adventures in Bali! ",
-          "latency": 9.69,
+          "response": " Based on your preferences and the places you will visit, here are some traditional Balinese dishes that you can try during your trip:\n- Nasi Goreng: A fried rice dish with a variety of ingredients such as shrimp, chicken, or tofu.\n- Sate Lilit: A unique type of satay made from minced fish, meat, or vegetables.\n- Gado-Gado: A traditional Balinese salad made from steamed vegetables and peanut sauce.\n- Babi Guling: A slow-cooked suckling pig dish with a spicy and fragrant flavor.\n- Sateh: Small pieces of marinated meat grilled on a skewer and served with a variety of dipping sauces.\n- Martabak: A sweet and savory pancake filled with ingredients such as cheese, eggs, or vegetables.\n- Durian: A popular fruit in Indonesia, known for its strong smell and unique taste.\n- Es Cendol: A refreshing cold dessert made from cendol (green noodles) and ice cream or yogurt.\n\nRemember to try the local cuisine while respecting any dietary restrictions you may have. ",
+          "latency": 9.8,
           "csr": 1.0
         }
       ],
@@ -1660,12 +422,11 @@
         "avoid crowded places": 1
       },
       "relevance": 4,
-      "keyword_rate": 0.67,
+      "keyword_rate": 0.33,
       "keyword_hits": [
-        "warung",
         "local"
       ],
-      "avg_latency": 8.87
+      "avg_latency": 9.91
     },
     {
       "id": "V2",
@@ -1675,22 +436,22 @@
         {
           "turn": 1,
           "query": "I have a budget of $50 per day",
-          "response": " Based on your travel memories, here's a suggestion for Day 3 in Singapore:\n\nStart the morning with a visit to Sentosa Island using the cable car. Enjoy the attractions at Universal Studios Singapore in the afternoon. After that, head to Chinatown and try some authentic zi char at a local restaurant. This should fit within your budget of $50 per day. ",
-          "latency": 4.27,
+          "response": " Based on your travel memories, you can plan your day in Singapore with the following activities:\n\n1. Morning: Cable car to Sentosa Island ($27 AUD)\n2. Afternoon: Spend time at Siloso Beach and explore beach bars (Free entry, just need to pay for drinks or food)\n3. Evening: Zi char restaurant in Chinatown (Average cost $50 AUD per person, so it should be within your budget if you share a meal with someone)\n\nThis will keep you within your daily budget while allowing you to enjoy the attractions on Sentosa Island and experience local cuisine in Chinatown. Enjoy your day! ",
+          "latency": 6.46,
           "csr": null
         },
         {
           "turn": 2,
           "query": "Where should I eat in Singapore?",
-          "response": " In Singapore, you might want to check out the Hawker Deep Dive or Newton Food Centre for some delightful local cuisine. Both are mentioned in your travel memories and are within your budget. ",
-          "latency": 3.47,
+          "response": " Based on your travel memories, you can try \"Hawker Deep Dive\" for a local culinary experience. They offer a variety of dishes and are located near the National Museum of Singapore, which you'll be visiting in the morning. ",
+          "latency": 4.38,
           "csr": 1.0
         },
         {
           "turn": 3,
           "query": "Which of those options is cheapest?",
-          "response": " Based on your travel memories, the Hawker Deep Dive offers a wider variety of food options, so it's likely to be cheaper than Newton Food Centre. However, you may find individual dishes or stalls at Newton to be more affordable. ",
-          "latency": 3.44,
+          "response": " The cheapest option among the ones provided would be to spend your afternoon at Siloso Beach. While entry to the beach is free, you can enjoy the local culture and vibrant atmosphere without incurring any additional costs for entrance or attractions. Keep in mind that if you choose to eat or drink at the beach bars, there might be extra expenses. ",
+          "latency": 4.65,
           "csr": 1.0
         }
       ],
@@ -1700,11 +461,9 @@
         "$50 per day budget": 1
       },
       "relevance": 3,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "hawker"
-      ],
-      "avg_latency": 3.73
+      "keyword_rate": 0.0,
+      "keyword_hits": [],
+      "avg_latency": 5.16
     },
     {
       "id": "V3",
@@ -1714,22 +473,22 @@
         {
           "turn": 1,
           "query": "I am vegetarian",
-          "response": " Understood, based on the context provided, you have visited Nusa Penida and Seminyak in Bali. Here are some suggestions for your next destination:\n\n1. If you want to continue exploring Bali, you can visit Ubud which is famous for its rice terraces, traditional markets, and temples. You can also join a cooking class and learn how to make Balinese vegetarian cuisine.\n2. If you are interested in wildlife, you can visit the Bali Safari Park, where you can see various types of animals up close.\n3. If you prefer beach destinations, you can head to Canggu, which is known for its laid-back atmosphere and beautiful beaches. You can also try vegetarian cuisine at one of the many cafes in the area.\n4. If you are interested in culture, you can visit the Uluwatu Temple, which offers stunning views of the ocean while also showcasing Balinese art and architecture.\n5. If you prefer to relax and rejuvenate, you can spend a day at one of Bali's many spas, where you can enjoy vegetarian spa treatments.\n\nI hope these suggestions help you plan your next destination. Enjoy your travels! ",
-          "latency": 6.72,
+          "response": " Based on your travel memories, it seems that you enjoyed a variety of experiences in Bali, from hiking and swimming at Kelingking Beach to visiting cultural sites like the temples. You also indulged in some luxury experiences such as dining at Sardine and visiting Ku De Ta beach club. As for your vegetarian dietary preference, it's great that you have been able to enjoy a diverse range of cuisine during your travels. ",
+          "latency": 4.85,
           "csr": null
         },
         {
           "turn": 2,
           "query": "What can I eat in India based on my trip?",
-          "response": " In India, there are many vegetarian options to try. Some popular vegetarian dishes in India include:\n\n1. Masala Dosa - A type of dosa (savory crepe) made from semolina and spiced potatoes.\n2. Thalis - A vegetarian platter that typically includes a variety of Indian breads, vegetables, and curries.\n3. Samosas - Small, savory pastries filled with spiced potatoes or peas.\n4. Chai Tea - A traditional Indian beverage made from black tea, milk, sugar, and various spices.\n5. Dal Bhaat - A vegetarian dish consisting of lentils (dal) and rice (bhaat). It is a staple in Indian cuisine.\n6. Puri - Fluffy Indian bread made from wheat flour and often eaten with curries or gravies.\n7. Vegetable Korma - A creamy sauce made from cashews, spices, and vegetables, often served over rice or naan bread.\n8. Pav Bhaji - A popular Indian street food consisting of a mixture of vegetables cooked in a tomato-based curry and served with soft bread rolls (pav).\n9. Rajma Chawal - A vegetarian dish made from kidney beans (rajma) and rice (chawal), seasoned with spices.\n10. Vegetable Biryani - A flavorful Indian dish made from basmati rice, vegetables, and spices.\n\nPlease note that these are just a few examples of vegetarian dishes in India, and there is much more to explore! ",
-          "latency": 8.6,
+          "response": " Considering the context provided and the fact that you are vegetarian, you can enjoy a variety of Indian cuisines such as samosas, chole bhature, dosa, and thalis. These dishes are widely available at street food vendors or traditional restaurants in India. ",
+          "latency": 4.17,
           "csr": 1.0
         },
         {
           "turn": 3,
           "query": "Which city had the best vegetarian food?",
-          "response": " Based on your travel memories, you have visited Jaipur in India. It is known for its rich culinary traditions, including a variety of vegetarian dishes. Some popular vegetarian dishes in Jaipur include:\n\n1. Dal Baati - A traditional Rajasthani dish consisting of lentils (dal) and wheat-based balls (baati), often served with ghee (clarified butter) and spices.\n2. Pyaaz Kachori - A savory Indian snack made from unleavened whole-wheat flour and filled with spiced potatoes and onions, often eaten as a breakfast item or as a snack during the day.\n3. Gatte ki Sabzi - A vegetarian dish made from gram flour (besan) and chickpeas, often served over rice or roti.\n4. Korma - A creamy sauce made from cashews, spices, and vegetables, often served over rice or naan bread.\n5. Rajma Chawal - A vegetarian dish made from kidney beans (rajma) and rice (chawal), seasoned with spices.\n6. Malai Ghol - A sweet dish made from condensed milk and cream, often garnished with chopped nuts and cardamom.\n7. Mawa Bati - A sweet dish made from semolina and sugar syrup, often served during festivals or special occasions.\n\nThese are just a few examples of vegetarian dishes in Jaipur, and there is much more to explore! ",
-          "latency": 9.42,
+          "response": " Based on your travel memories, you enjoyed a delicious vegetarian meal at Sardine in Bali. However, without knowing which cities you have visited in India, it is not possible to determine which city has the best vegetarian food. It would be best to explore local restaurants and street food vendors when you visit Indian cities to find the best vegetarian dishes. ",
+          "latency": 4.87,
           "csr": 1.0
         }
       ],
@@ -1738,13 +497,12 @@
       "csr_detail": {
         "vegetarian": 1
       },
-      "relevance": 4,
-      "keyword_rate": 0.67,
+      "relevance": 2,
+      "keyword_rate": 0.33,
       "keyword_hits": [
-        "veg",
-        "dal"
+        "veg"
       ],
-      "avg_latency": 8.25
+      "avg_latency": 4.63
     },
     {
       "id": "V4",
@@ -1754,22 +512,22 @@
         {
           "turn": 1,
           "query": "I cannot do physically demanding activities or long hikes",
-          "response": " Based on the context provided, it appears you have a preference for exploring historical sites and appreciating nature while also enjoying some leisure time at beach bars. Given your constraints of not being able to do physically demanding activities or long hikes, I recommend you visit the Al Fahidi Historical Neighborhood in Dubai, as this location is known for its historic charm and traditional architecture.\n\nFor a more laid-back experience, you might want to consider visiting Sentosa Island in Singapore and exploring the area at your own pace. You can take a cable car to Sentosa in the morning and then enjoy some relaxation time at Siloso Beach or beach bars in the afternoon. In the evening, you could visit a zi char restaurant in Chinatown for dinner. Keep in mind that this day might be more expensive than other days due to the additional costs of the cable car ride.\n\nFinally, during your trip to Bali, you can take it easy and enjoy the natural beauty of Ubud Campuhan Ridge by taking a leisurely stroll down the dirt path, soaking in the vibrant greenery, and experiencing the tranquility that this location has to offer.\n\nRemember to keep track of your expenses throughout your trip. Enjoy your travels! ",
-          "latency": 7.45,
+          "response": " Based on the provided context, it seems you have a preference for exploring historical and cultural sites. In Al Fahidi Historical Neighborhood in Dubai, there are many opportunities to admire traditional architecture at a leisurely pace. You can also enjoy a stroll around the neighborhood while taking in the rich history and vibrant atmosphere.\n\nIn Singapore's Sentosa Island, you may want to consider visiting Universal Studios or exploring Siloso Beach for a more relaxed experience. Additionally, if you are interested in natural beauty, you could visit Bali's Ubud Campuhan Ridge or Angle's Billabong and Broken Beach in Nusa Penida without engaging in physically demanding activities.\n\nFor your travel preferences, you can focus on visiting historical sites like the Al Fahidi Historical Neighborhood, exploring cultural attractions such as Chinatown, and enjoying leisurely moments at beaches or parks. This way, you can make the most of your journey without exerting yourself too much. ",
+          "latency": 8.26,
           "csr": null
         },
         {
           "turn": 2,
           "query": "What should I do in Bali?",
-          "response": " Based on the context provided and your preference for exploring historical sites and appreciating nature while also enjoying some leisure time at beach bars, I recommend you visit the Al Fahidi Historical Neighborhood in Dubai, as this location is known for its historic charm and traditional architecture. For a more laid-back experience, you might want to consider visiting Sentosa Island in Singapore and exploring the area at your own pace. In the evening, you could visit a zi char restaurant in Chinatown for dinner. Keep in mind that this day might be more expensive than other days due to the additional costs of the cable car ride. Finally, during your trip to Bali, you can take it easy and enjoy the natural beauty of Ubud Campuhan Ridge by taking a leisurely stroll down the dirt path, soaking in the vibrant greenery, and experiencing the tranquility that this location has to offer. Remember to keep track of your expenses throughout your trip. Enjoy your travels! ",
-          "latency": 6.27,
+          "response": " Based on your preferences and constraints, you may want to visit Ubud Campuhan Ridge, which offers stunning views of rice terraces and a peaceful atmosphere. Additionally, you could explore Bali's rich history at historical sites like Tanah Lot Temple, or admire the traditional architecture of the Al Fahidi Historical Neighborhood in Dubai. If you are interested in nature, consider visiting Angle's Billabong and Broken Beach in Nusa Penida for their unique beauty without engaging in physically demanding activities. For a more relaxed experience, take your time strolling around local markets or beaches. ",
+          "latency": 5.98,
           "csr": 1.0
         },
         {
           "turn": 3,
           "query": "What about eating \u2014 where do you recommend?",
-          "response": " In Bali, I suggest you try some local cuisine at a traditional Indonesian restaurant in Ubud or Seminyak, as these areas are known for their culinary scene. Alternatively, you could also visit a beach bar or caf\u00e9 on Sentosa Island and enjoy some international dishes with a view of the ocean. In Singapore, you can explore the local food scene by visiting hawker centers like Tiong Bahru Market in Chinatown or enjoying street food at Lau Pa Sat in the Downtown Core. For more upscale dining options, you might want to try some Asian fusion cuisine at a trendy restaurant in the Colonial District. ",
-          "latency": 5.98,
+          "response": " Based on your preferences and constraints, I recommend visiting the zi char restaurant in Chinatown in Singapore for a delicious meal in a vibrant atmosphere. In Bali, you can enjoy a diverse range of cuisine at local restaurants or street food stalls, which are typically more accessible and budget-friendly compared to fine dining options. ",
+          "latency": 5.46,
           "csr": 1.0
         }
       ],
@@ -1778,11 +536,9 @@
       "csr_detail": {
         "no strenuous hiking or physical activities": 1
       },
-      "relevance": 3,
-      "keyword_rate": 0.33,
-      "keyword_hits": [
-        "Ubud"
-      ],
+      "relevance": 4,
+      "keyword_rate": 0.0,
+      "keyword_hits": [],
       "avg_latency": 6.57
     },
     {
@@ -1793,36 +549,36 @@
         {
           "turn": 1,
           "query": "I strongly prefer authentic local experiences over touristy places",
-          "response": " Based on your preferences, it seems you enjoyed the serene and historic Al Fahidi Historical Neighborhood in Dubai. To provide more personalized recommendations, could you please provide me with more details about what specific types of experiences or destinations you're interested in? For instance, are you looking for local markets, authentic dining spots, cultural events, historical sites, or any other unique experiences within your travel preferences? ",
-          "latency": 4.41,
+          "response": " Based on your preferences, you might enjoy exploring Al Fahidi Historical Neighborhood in Dubai. This area is known for its traditional architecture and rich cultural heritage. You could also visit Nusa Penida, an island off the coast of Bali, Indonesia, where you can experience adventure activities like hiking and swimming in clear turquoise water. Additionally, Colonial District in Singapore offers a deep dive into local history and food culture, which aligns with your preference for authentic experiences. ",
+          "latency": 5.67,
           "csr": null
         },
         {
           "turn": 2,
           "query": "Recommend me a city to visit in India",
-          "response": " Based on the context provided and your preference for authentic local experiences, I would recommend visiting Jaipur, also known as the Pink City. In India, Jaipur is famous for its historic palaces, including the Jaipur City Palace, which you have already visited as per the context. Other places of interest in Jaipur include Amber Fort, Hawa Mahal (Palace of Winds), and Jantar Mantar, an astronomical observatory. These sites offer a glimpse into the rich cultural heritage and history of India, providing authentic local experiences that align with your preferences. ",
-          "latency": 4.24,
-          "csr": 1.0
+          "response": " Given that you have already visited Jaipur City Palace and Jaipur Pink City in India, and considering your preference for authentic local experiences, I would recommend visiting Hampi in Karnataka. This UNESCO World Heritage Site is known for its rich history, magnificent ruins, and cultural significance. You can experience local life by staying in a traditional homestay or exploring the ancient temples and palaces of the region. ",
+          "latency": 4.55,
+          "csr": 0.0
         },
         {
           "turn": 3,
           "query": "What should I eat there?",
-          "response": " In Jaipur, you must try local delicacies such as Dal Baati Churma, Pyaaz ki Kachori, Rajasthani Thalis, and the famous Ghevar dessert. These are authentic Rajput cuisine dishes that are a must-try while visiting Jaipur. ",
-          "latency": 3.89,
+          "response": " Given that you have already experienced Indonesian cuisine at Seminyak, you might enjoy trying traditional Indian dishes while visiting Hampi. Some popular local delicacies include Idli-Sambar, Dosa, and Vada Pav. These dishes are commonly found in street food markets or local restaurants in Hampi. Additionally, you can also try authentic Indian sweets like Gulab Jamun and Rasmalai. ",
+          "latency": 5.24,
           "csr": 1.0
         }
       ],
       "final_csr": 1.0,
-      "avg_turn_csr": 1.0,
+      "avg_turn_csr": 0.5,
       "csr_detail": {
         "authentic local experiences not tourist traps": 1
       },
-      "relevance": 3,
+      "relevance": 4,
       "keyword_rate": 0.5,
       "keyword_hits": [
         "local"
       ],
-      "avg_latency": 4.18
+      "avg_latency": 5.15
     },
     {
       "id": "V6",
@@ -1832,22 +588,22 @@
         {
           "turn": 1,
           "query": "I have a tight budget of $40 per day maximum",
-          "response": " Based on your travel memories, it seems you enjoyed various activities such as visiting Sentosa Island, exploring the Colonial District and Hawker Deep Dive in Singapore, experiencing Seminyak's beach and food culture in Bali, and discovering Dubai's historical sites.\n\nGiven your tight budget of $40 per day, it might be challenging to explore Singapore at $185 AUD per day on day 3. However, you can still visit Sentosa by taking a cable car and spend some time at the beach or Universal Studios for a more affordable experience.\n\nIn Bali, you can enjoy Seminyak's food and beach culture without spending too much money. You could also explore the nearby Canggu area on day 8, which is known for its vibrant nightlife and trendy cafes.\n\nFor Dubai, consider visiting the Al Fahidi Historical Neighborhood to experience the rich cultural heritage at a lower cost compared to other luxurious sites. Make sure to check local attractions and their entrance fees to stay within your budget while still enjoying the best of each destination. ",
-          "latency": 6.84,
+          "response": " Based on your travel memories and preferences, here are some suggestions for your next destination within the linked theme: ",
+          "latency": 4.04,
           "csr": null
         },
         {
           "turn": 2,
           "query": "Which of my trips would you suggest I repeat?",
-          "response": " Based on your travel memories, it seems like you enjoyed your visit to Nusa Penida and Bali the most. If you were to repeat one of your trips, I would recommend revisiting Nusa Penida or exploring more of Bali, as these experiences seem to have had a significant impact on you emotionally. ",
-          "latency": 4.55,
+          "response": " Considering your preference for a \"beach\" activity in Bali, I would recommend repeating your visit to Kelingking Beach in Nusa Penida. This is because Kelingking Beach was marked with the \"beach\" tag and it seems you enjoyed this particular beach experience during your earlier trip. Additionally, your emotions related to this location are consistent with a desire for adventure and connection with nature, which aligns well with the activities you described in your previous visit to Nusa Penida. ",
+          "latency": 5.67,
           "csr": 1.0
         },
         {
           "turn": 3,
           "query": "What activities can I do there that fit that budget?",
-          "response": " Given your tight budget of $40 per day and the desire to repeat one of your previous trips, I suggest exploring more of Bali or revisiting Nusa Penida. In Bali, you could visit Seminyak's beach and food culture without spending too much money. There are plenty of affordable beach bars, local cafes, and street markets to explore. Additionally, consider visiting the nearby Canggu area on day 8, which is known for its vibrant nightlife and trendy cafes, while still maintaining your budget constraints.\n\nIn Nusa Penida, you can visit Kelingking Beach, Angel's Billabong, and Broken Beach, all of which are popular attractions that fit within your budget. Make sure to check local attractions and their entrance fees to stay within your budget while still enjoying the best of each destination. ",
-          "latency": 6.33,
+          "response": " Based on your travel memories and preferences, here are some suggestions for activities in Nusa Penida within your budget of $40 per day maximum:\n\n1. Snorkeling or Scuba Diving: You can explore the beautiful coral reefs around Kelingking Beach or other popular snorkeling spots like Crystal Bay. The cost for snorkeling or scuba diving varies, but you should be able to find options within your budget.\n\n2. Beach Activities: Enjoy a relaxing day at the beach, sunbathing and swimming. This is free of charge.\n\n3. Hiking and Waterfalls: Nusa Penida offers several hiking trails that lead to stunning waterfalls. The cost for this activity would depend on whether you hire a guide or not.\n\n4. Island Hopping: You can visit other islands in the area, such as Nusa Lembongan, which is known for its picturesque beaches and mangrove forests. The cost for island hopping tours varies but should fit within your budget.\n\n5. Local Restaurants: Explore local restaurants to enjoy traditional Indonesian cuisine at affordable prices. The cost of meals in Nusa Penida can vary, but you should be able to find options that fit within your budget.\n\nRemember to check the prices and availability of these activities beforehand to ensure they are within your budget and align with your preferences. ",
+          "latency": 9.71,
           "csr": 1.0
         }
       ],
@@ -1857,134 +613,50 @@
         "$40 per day maximum budget": 1
       },
       "relevance": 4,
-      "keyword_rate": 0.5,
-      "keyword_hits": [
-        "Bali"
-      ],
-      "avg_latency": 5.91
+      "keyword_rate": 0.0,
+      "keyword_hits": [],
+      "avg_latency": 6.47
     }
   ],
   "summaries": [
     {
-      "mode": "plain",
+      "mode": "episodes",
       "overall": {
-        "avg_relevance": 2.96,
-        "avg_latency": 3.25,
-        "avg_keyword_rate": 0.4,
-        "avg_final_csr": 0.67,
-        "avg_turn_csr": 0.75,
+        "avg_relevance": 3.13,
+        "avg_latency": 4.82,
+        "avg_keyword_rate": 0.47,
+        "avg_final_csr": 1.0,
+        "avg_turn_csr": 0.92,
         "total_queries": 23
       },
       "by_family": {
         "factual": {
-          "avg_relevance": 2.67,
-          "avg_latency": 2.41,
-          "avg_keyword_rate": 0.45,
+          "avg_relevance": 2.83,
+          "avg_latency": 4.08,
+          "avg_keyword_rate": 0.53,
           "avg_final_csr": "N/A",
           "avg_turn_csr": "N/A"
         },
         "cross_modal": {
-          "avg_relevance": 2.67,
-          "avg_latency": 2.12,
+          "avg_relevance": 3.17,
+          "avg_latency": 4.15,
+          "avg_keyword_rate": 0.67,
+          "avg_final_csr": "N/A",
+          "avg_turn_csr": "N/A"
+        },
+        "multi_hop": {
+          "avg_relevance": 3.0,
+          "avg_latency": 4.72,
           "avg_keyword_rate": 0.5,
           "avg_final_csr": "N/A",
           "avg_turn_csr": "N/A"
         },
-        "multi_hop": {
-          "avg_relevance": 3.4,
-          "avg_latency": 3.96,
-          "avg_keyword_rate": 0.37,
-          "avg_final_csr": "N/A",
-          "avg_turn_csr": "N/A"
-        },
-        "conversational": {
-          "avg_relevance": 3.17,
-          "avg_latency": 4.61,
-          "avg_keyword_rate": 0.28,
-          "avg_final_csr": 0.67,
-          "avg_turn_csr": 0.75
-        }
-      }
-    },
-    {
-      "mode": "chunks",
-      "overall": {
-        "avg_relevance": 3.04,
-        "avg_latency": 3.82,
-        "avg_keyword_rate": 0.52,
-        "avg_final_csr": 0.83,
-        "avg_turn_csr": 0.83,
-        "total_queries": 23
-      },
-      "by_family": {
-        "factual": {
-          "avg_relevance": 2.33,
-          "avg_latency": 2.65,
-          "avg_keyword_rate": 0.45,
-          "avg_final_csr": "N/A",
-          "avg_turn_csr": "N/A"
-        },
-        "cross_modal": {
-          "avg_relevance": 3.17,
-          "avg_latency": 2.33,
-          "avg_keyword_rate": 0.67,
-          "avg_final_csr": "N/A",
-          "avg_turn_csr": "N/A"
-        },
-        "multi_hop": {
-          "avg_relevance": 3.2,
-          "avg_latency": 3.82,
-          "avg_keyword_rate": 0.4,
-          "avg_final_csr": "N/A",
-          "avg_turn_csr": "N/A"
-        },
         "conversational": {
           "avg_relevance": 3.5,
-          "avg_latency": 6.48,
-          "avg_keyword_rate": 0.56,
-          "avg_final_csr": 0.83,
-          "avg_turn_csr": 0.83
-        }
-      }
-    },
-    {
-      "mode": "episodes",
-      "overall": {
-        "avg_relevance": 3.3,
-        "avg_latency": 4.09,
-        "avg_keyword_rate": 0.54,
-        "avg_final_csr": 1.0,
-        "avg_turn_csr": 1.0,
-        "total_queries": 23
-      },
-      "by_family": {
-        "factual": {
-          "avg_relevance": 2.5,
-          "avg_latency": 3.51,
-          "avg_keyword_rate": 0.53,
-          "avg_final_csr": "N/A",
-          "avg_turn_csr": "N/A"
-        },
-        "cross_modal": {
-          "avg_relevance": 3.83,
-          "avg_latency": 2.79,
-          "avg_keyword_rate": 0.67,
-          "avg_final_csr": "N/A",
-          "avg_turn_csr": "N/A"
-        },
-        "multi_hop": {
-          "avg_relevance": 3.4,
-          "avg_latency": 3.77,
-          "avg_keyword_rate": 0.43,
-          "avg_final_csr": "N/A",
-          "avg_turn_csr": "N/A"
-        },
-        "conversational": {
-          "avg_relevance": 3.5,
-          "avg_latency": 6.25,
-          "avg_keyword_rate": 0.53,
+          "avg_latency": 6.32,
+          "avg_keyword_rate": 0.19,
           "avg_final_csr": 1.0,
-          "avg_turn_csr": 1.0
+          "avg_turn_csr": 0.92
         }
       }
     }
