@@ -42,7 +42,7 @@ from langchain_ollama import OllamaLLM
 
 from chatbot import build_graph, build_initial_state, run_turn
 
-# ── Config ────────────────────────────────────────────────────────────────────
+# Config 
 MODEL      = "llava"
 OUTPUT_DIR = Path("evaluation")
 OUTPUT_DIR.mkdir(exist_ok=True)
@@ -55,14 +55,13 @@ VARIANT_LABELS = {
     "episodes": "Variant B (episodes + memory)"
 }
 
-# ── Benchmark Test Set ────────────────────────────────────────────────────────
+
 # 24 queries — 6 per family
 # More queries per family reduces variance from individual LLM scoring noise
 # and produces more reliable averages for the comparison table
-
 TEST_SET = [
 
-    # ── Factual (F1-F6) ───────────────────────────────────────────────────────
+    # Factual (F1-F6) 
     {
         "id": "F1",
         "family": "factual",
@@ -112,7 +111,7 @@ TEST_SET = [
         "context_hint": "The desert safari — dune bashing, sunset, stars above the camp."
     },
 
-    # ── Cross-Modal (C1-C6) ───────────────────────────────────────────────────
+    # Cross-Modal (C1-C6) 
     {
         "id": "C1",
         "family": "cross_modal",
@@ -162,7 +161,7 @@ TEST_SET = [
         "context_hint": "Red Fort Delhi, Amber Fort Jaipur, Mehrangarh Fort Jodhpur, or Jama Masjid."
     },
 
-    # ── Multi-Hop (M1-M6) ─────────────────────────────────────────────────────
+    # Multi-Hop (M1-M6)
     {
         "id": "M1",
         "family": "multi_hop",
@@ -204,7 +203,7 @@ TEST_SET = [
         "context_hint": "Bali Nusa Penida: sea turtles at Crystal Bay, dolphins at Agonda equivalent. Singapore: butterfly garden."
     },
 
-    # ── Conversational (V1-V6) ────────────────────────────────────────────────
+    # Conversational (V1-V6) 
     # Constraint stated in turn 1 — must be honoured in turns 2 and 3
     # V0 has no memory so should fail CSR on turns 2 and 3
     # VA and VB have AgentState memory so should pass
@@ -283,21 +282,23 @@ TEST_SET = [
 ]
 
 
-# ── Metric 1: CSR (LLM-as-judge) ─────────────────────────────────────────────
-
+# Metric 1: CSR (LLM-as-judge)
 def score_csr(response: str, constraints: list) -> dict:
     """
-    Ask LLM whether each constraint was honoured in the response.
-    Binary per constraint: 1 = honoured, 0 = violated or ignored.
-    Consider it honoured even if not explicitly mentioned — as long
-    as the response does not violate it.
-
-    response: the final answer from the agent to be scored
-    constraints: list of constraints the agent should have honoured
-
-    Returns a dict with:
-    - scores: {constraint: 1 or 0}
-    - csr: average score across constraints (0 to 1)
+    Scores Constraint Satisfaction Rate (CSR) using LLM-as-judge.
+    
+    Evaluates whether each constraint was honored in the response (binary per constraint).
+    Returns dict with individual scores and average CSR (0 to 1).
+    
+    Args:
+        response (str): The agent's final answer to be scored
+        constraints (list): List of constraint strings the agent should honor
+        
+    Returns:
+        dict: {
+            "scores": {constraint: 1 or 0, ...},
+            "csr": average score 0-1 or None if no constraints
+        }
     """
     # If no constraints, CSR is not applicable (None)
     if not constraints:
@@ -336,18 +337,18 @@ Response:
 # Metric 2: Relevance (LLM-as-judge) 
 def score_relevance(query: str, response: str) -> int:
     """
-    Ask LLM to score how well the response answers the query based on personal travel details.
-    Scores 1-5:
-    1 = completely generic, could apply to anyone
-    2 = slightly personalised but mostly generic
-    3 = some personal details used
-    4 = mostly personal and specific
-    5 = highly specific, uses real personal details throughout
-
-    query: the original user query
-    response: the final answer from the agent to be scored
-
-    Returns an integer relevance score from 1 to 5.
+    Scores answer relevance on scale 1-5 using LLM-as-judge.
+    
+    Evaluates how well the response uses specific personal travel details vs generic advice.
+    1 = completely generic, 2 = slightly personalized, 3 = some personal details,
+    4 = mostly personal, 5 = highly specific with real personal details throughout.
+    
+    Args:
+        query (str): The user's question
+        response (str): The agent's answer to score
+        
+    Returns:
+        int: Relevance score 1-5, defaults to 3 if parsing fails
     """
     prompt = f"""Score this travel assistant response from 1 to 5.
 
@@ -374,21 +375,24 @@ Reply with ONLY a single number 1-5:"""
 # Metric 3: Keyword Match
 def score_keywords(response: str, expected_keys: list) -> dict:
     """
-    Check how many of the expected keywords are present in the response.
-
-    response: the final answer from the agent to be scored
-    expected_keys: list of keywords that should ideally be mentioned in the response
-
-    Returns a dict with:
-    - hits: list of expected keywords found in the response
-    - rate: percentage of expected keywords found (0 to 1)
-
-        Note: This is a simple string match and does not account for synonyms or context.
+    Scores keyword match rate by checking expected keywords in response.
+    
+    Performs case-insensitive string matching for each expected keyword.
+    Returns dict with keywords found and match rate percentage.
+    
+    Args:
+        response (str): The agent's final answer to be scored
+        expected_keys (list): Keywords that should ideally appear in response
+        
+    Returns:
+        dict: {
+            "hits": list of keywords found,
+            "rate": percentage matched 0-1, or None if no expected_keys
+        }
     """
     if not expected_keys:
         return {"hits": [], "rate": None}
 
-    # Count how many expected keywords are present in the response (case-insensitive)
     hits = [kw for kw in expected_keys if kw.lower() in response.lower()]
     rate = round(len(hits) / len(expected_keys), 2)
     return {
@@ -400,15 +404,26 @@ def score_keywords(response: str, expected_keys: list) -> dict:
 
 def run_single_turn(state, app, query: str, turn_idx: int, constraints: list) -> tuple:
     """
-    Runs a single turn of the conversation with the agent, including CSR scoring if applicable.
-
-    state: the current AgentState
-    app: the LangGraph agent application
-    query: the user query for this turn
-    turn_idx: the index of the current turn (0-based)
-    constraints: list of constraints to be scored for CSR (only for conversational queries)
-
-    returns the updated state and a dict with turn results including response, latency, and CSR score if applicable.
+    Executes a single conversation turn and scores CSR if applicable.
+    
+    Runs query through agent, captures response and latency, scores Constraint Satisfaction
+    Rate on turn 2+ (turn 1 just states constraint, nothing to score yet). CSR failure
+    on later turns in Variant 0 shows importance of memory.
+    
+    Args:
+        state (AgentState): Current conversation state
+        app: Compiled LangGraph application
+        query (str): User query for this turn
+        turn_idx (int): 0-based turn index
+        constraints (list): Constraint strings to score against (only turns 2+)
+        
+    Returns:
+        tuple: (updated_state, turn_result_dict) where turn_result contains:
+            - turn: 1-based turn number
+            - query: the user query
+            - response: the agent's answer
+            - latency: response time in seconds
+            - csr: constraint satisfaction score or None if not applicable
     """
     state["query"] = query
     state          = run_turn(state, app)
@@ -437,19 +452,25 @@ def run_single_turn(state, app, query: str, turn_idx: int, constraints: list) ->
 
     return state, turn_result
 
+
 def run_test_case(test: dict, app, mode: str) -> list:
     """
-    Runs a single test case through the agent, turn by turn, and collects results.
+    Executes a single test case through the agent, turn by turn.
     
-    test: dict containing test case details (id, family, turns, constraints, expected_keys)
-    app: the LangGraph agent application
-    mode: the variant being tested (plain, chunks, episodes)
-     
-    returns a list of turn results with response, latency, and CSR score if applicable.
+    Creates fresh state, iterates through all turns in test, collects results
+    with responses and CSR scores. Returns list of turn results.
+    
+    Args:
+        test (dict): Test case with id, family, turns, constraints, expected_keys
+        app: Compiled LangGraph application
+        mode (str): Variant being tested - "plain", "chunks", or "episodes"
+        
+    Returns:
+        list: Turn results dicts with response, latency, CSR for each turn
     """
     print(f"\n  [{test['id']}] {test['family'].upper()}")
 
-    state        = build_initial_state(mode)
+    state = build_initial_state(mode)
     turn_results = []
 
     for turn_idx, query in enumerate(test["turns"]):
@@ -462,12 +483,25 @@ def run_test_case(test: dict, app, mode: str) -> list:
 
 def score_final_response(test: dict, turn_results: list) -> dict:
     """
-    Scores the final response of the agent on CSR, relevance, keyword match, and latency.
+    Scores the final response of a test case on all metrics.
     
-    test: dict containing test case details (id, family, turns, constraints, expected_keys)
-    turn_results: list of dicts with results from each turn, including the final response and latency
-      
-    returns a dict with final CSR, relevance score, keyword match rate, and average latency.
+    Computes final CSR, relevance (1-5), keyword match rate, and average latency
+    across all turns. Calculates average per-turn CSR for conversational tests.
+    
+    Args:
+        test (dict): Test case with id, family, turns, constraints, expected_keys
+        turn_results (list): Results from each turn including responses and CSR scores
+        
+    Returns:
+        dict: {
+            "final_csr": overall CSR or None,
+            "avg_turn_csr": average CSR across turns with constraints,
+            "csr_detail": individual constraint scores,
+            "relevance": 1-5 score,
+            "keyword_rate": percentage of expected keywords,
+            "keyword_hits": list of keywords found,
+            "avg_latency": average response time across all turns
+        }
     """
     last_response = turn_results[-1]["response"]
 
@@ -500,11 +534,16 @@ def score_final_response(test: dict, turn_results: list) -> dict:
 
 def run_variant(mode: str) -> list:
     """
-    Runs all test cases for a given variant and collects results.
+    Runs all test cases for a given variant.
     
-    mode: the variant being tested (plain, chunks, episodes)
+    Orchestrates full evaluation of a single variant (plain, chunks, episodes) across
+    all 24 test cases. Collects results, scores, and metrics for later comparison.
     
-    returns a list of result records for each test case, including scores and details.
+    Args:
+        mode (str): Variant being tested - "plain", "chunks", or "episodes"
+        
+    Returns:
+        list: Result records for each test case with all scores and details
     """
     print(f"\n{'='*55}")
     print(f"  RUNNING {VARIANT_LABELS.get(mode,'').upper()}")
@@ -528,125 +567,100 @@ def run_variant(mode: str) -> list:
 
 def compute_summary(results: list, mode: str) -> dict:
     """
-    Computes average scores overall and by query family for a given variant.
+    Computes aggregate statistics for evaluation results.
     
-    results: list of result records for each test case in this variant
-    mode: the variant being summarized (plain, chunks, episodes)
+    Calculates average relevance, latency, keyword match, CSR, and turn CSR
+    both overall and broken down by query family (factual, cross_modal, multi_hop, conversational).
     
-    returns a dict with overall averages and averages by family.
+    Args:
+        results (list): Result records from all test cases in this variant
+        mode (str): Variant being summarized - "plain", "chunks", or "episodes"
+        
+    Returns:
+        dict: {
+            "mode": variant name,
+            "overall": {avg scores across all queries},
+            "by_family": {family_name: {average scores for that family}, ...}
+        }
     """
     families = ["factual", "cross_modal", "multi_hop", "conversational"]
     summary  = {"mode": mode, "overall": {}, "by_family": {}}
 
+    # Extract relevant metrics for overall averages
     all_relevance = [r["relevance"]    for r in results]
     all_latency   = [r["avg_latency"]  for r in results]
     all_keywords  = [r["keyword_rate"] for r in results if r["keyword_rate"] is not None]
     csr_list      = [r["final_csr"]    for r in results if r["final_csr"]    is not None]
     turn_csr_list = [r["avg_turn_csr"] for r in results if r["avg_turn_csr"] is not None]
 
+    # Overall averages
     summary["overall"] = {
-        "avg_relevance":    round(sum(all_relevance) / len(all_relevance), 2),
-        "avg_latency":      round(sum(all_latency) / len(all_latency), 2),
+        "avg_relevance": round(sum(all_relevance) / len(all_relevance), 2),
+        "avg_latency": round(sum(all_latency) / len(all_latency), 2),
         "avg_keyword_rate": round(sum(all_keywords) / len(all_keywords), 2) if all_keywords else "N/A",
-        "avg_final_csr":    round(sum(csr_list) / len(csr_list), 2)          if csr_list      else "N/A",
-        "avg_turn_csr":     round(sum(turn_csr_list) / len(turn_csr_list), 2) if turn_csr_list else "N/A",
-        "total_queries":    len(results)
+        "avg_final_csr": round(sum(csr_list) / len(csr_list), 2)          if csr_list      else "N/A",
+        "avg_turn_csr": round(sum(turn_csr_list) / len(turn_csr_list), 2) if turn_csr_list else "N/A",
+        "total_queries": len(results)
     }
 
+    # Averages by family
     for family in families:
-        fam          = [r for r in results if r["family"] == family]
+        fam = [r for r in results if r["family"] == family]
         if not fam:
             continue
-        fam_csr      = [r["final_csr"]    for r in fam if r["final_csr"]    is not None]
+        fam_csr = [r["final_csr"]    for r in fam if r["final_csr"]    is not None]
         fam_turn_csr = [r["avg_turn_csr"] for r in fam if r["avg_turn_csr"] is not None]
-        fam_kw       = [r["keyword_rate"] for r in fam if r["keyword_rate"] is not None]
+        fam_kw = [r["keyword_rate"] for r in fam if r["keyword_rate"] is not None]
 
         summary["by_family"][family] = {
-            "avg_relevance":    round(sum(r["relevance"]   for r in fam) / len(fam), 2),
-            "avg_latency":      round(sum(r["avg_latency"] for r in fam) / len(fam), 2),
-            "avg_keyword_rate": round(sum(fam_kw) / len(fam_kw), 2)             if fam_kw       else "N/A",
-            "avg_final_csr":    round(sum(fam_csr) / len(fam_csr), 2)           if fam_csr      else "N/A",
-            "avg_turn_csr":     round(sum(fam_turn_csr) / len(fam_turn_csr), 2) if fam_turn_csr else "N/A"
+            "avg_relevance": round(sum(r["relevance"]   for r in fam) / len(fam), 2),
+            "avg_latency": round(sum(r["avg_latency"] for r in fam) / len(fam), 2),
+            "avg_keyword_rate": round(sum(fam_kw) / len(fam_kw), 2) if fam_kw else "N/A",
+            "avg_final_csr": round(sum(fam_csr) / len(fam_csr), 2) if fam_csr else "N/A",
+            "avg_turn_csr": round(sum(fam_turn_csr) / len(fam_turn_csr), 2) if fam_turn_csr else "N/A"
         }
 
     return summary
 
 
 # Save Results 
-
 def save_results(all_results: list, summaries: list):
+    """
+    Saves evaluation results to JSON.
+    
+    Outputs one file:
+    1. results.json - Full results with all details
+
+    Args:
+        all_results (list): All test case results from all variants
+        summaries (list): Summary statistics by variant and family
+        
+    Returns:
+        None (writes files to evaluation/ directory)
+    """
     # Full JSON
     json_path = OUTPUT_DIR / "results.json"
     json_path.write_text(json.dumps(
         {"results": all_results, "summaries": summaries}, indent=2
     ))
-    print(f"\n  ✓ Full results     → {json_path}")
-
-    # Summary CSV
-    csv_path = OUTPUT_DIR / "results_summary.csv"
-    r0 = {r["id"]: r for r in all_results if r["mode"] == "plain"}
-    ra = {r["id"]: r for r in all_results if r["mode"] == "chunks"}
-    rb = {r["id"]: r for r in all_results if r["mode"] == "episodes"}
-
-    with open(csv_path, "w", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow([
-            "ID", "Family",
-            "V0 Relevance", "VA Relevance", "VB Relevance",
-            "V0 Keywords",  "VA Keywords",  "VB Keywords",
-            "V0 CSR",       "VA CSR",       "VB CSR",
-            "V0 Latency",   "VA Latency",   "VB Latency",
-        ])
-        for test in TEST_SET:
-            tid = test["id"]
-            writer.writerow([
-                tid, test["family"],
-                r0.get(tid, {}).get("relevance",    ""),
-                ra.get(tid, {}).get("relevance",    ""),
-                rb.get(tid, {}).get("relevance",    ""),
-                r0.get(tid, {}).get("keyword_rate", ""),
-                ra.get(tid, {}).get("keyword_rate", ""),
-                rb.get(tid, {}).get("keyword_rate", ""),
-                r0.get(tid, {}).get("final_csr",    "N/A"),
-                ra.get(tid, {}).get("final_csr",    "N/A"),
-                rb.get(tid, {}).get("final_csr",    "N/A"),
-                r0.get(tid, {}).get("avg_latency",  ""),
-                ra.get(tid, {}).get("avg_latency",  ""),
-                rb.get(tid, {}).get("avg_latency",  ""),
-            ])
-    print(f"  ✓ Summary CSV      → {csv_path}")
-
-    # Per-turn CSR CSV — your headline finding
-    csr_path = OUTPUT_DIR / "csr_per_turn.csv"
-    conv_ids = [t["id"] for t in TEST_SET if t["family"] == "conversational"]
-
-    with open(csr_path, "w", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow(["Test ID", "Turn", "Query", "V0 CSR", "VA CSR", "VB CSR"])
-
-        for tid in conv_ids:
-            v0_turns = next((r["turns"] for r in all_results if r["id"] == tid and r["mode"] == "plain"),    [])
-            va_turns = next((r["turns"] for r in all_results if r["id"] == tid and r["mode"] == "chunks"),   [])
-            vb_turns = next((r["turns"] for r in all_results if r["id"] == tid and r["mode"] == "episodes"), [])
-
-            max_turns = max(len(v0_turns), len(va_turns), len(vb_turns), 1)
-            for i in range(max_turns):
-                v0t = v0_turns[i] if i < len(v0_turns) else {}
-                vat = va_turns[i] if i < len(va_turns) else {}
-                vbt = vb_turns[i] if i < len(vb_turns) else {}
-                writer.writerow([
-                    tid, i + 1,
-                    v0t.get("query", "")[:50],
-                    v0t.get("csr", "N/A"),
-                    vat.get("csr", "N/A"),
-                    vbt.get("csr", "N/A"),
-                ])
-    print(f"  ✓ Per-turn CSR CSV → {csr_path}")
+    print(f"\n  ✓ Full results -> {json_path}")
 
 
 #  Print Comparison Table
 
 def print_comparison(summaries: list):
+    """
+    Prints formatted comparison table of variant evaluation results.
+    
+    Displays metrics overall and broken down by query family. Shows side-by-side
+    comparison of V0, VA, and VB to highlight the effect of memory and data structure.
+    
+    Args:
+        summaries (list): Summary statistics computed by compute_summary()
+        
+    Returns:
+        None (prints to stdout)
+    """
     v0 = next((s for s in summaries if s["mode"] == "plain"),    {}).get("overall", {})
     va = next((s for s in summaries if s["mode"] == "chunks"),   {}).get("overall", {})
     vb = next((s for s in summaries if s["mode"] == "episodes"), {}).get("overall", {})
@@ -656,6 +670,7 @@ def print_comparison(summaries: list):
     print(f"{'='*65}")
     print(f"  {'Metric':<32} {'V0':>10} {'VA':>10} {'VB':>10}")
     print(f"  {'-'*62}")
+    # Overall metrics presented in a way that handles missing values gracefully (e.g. CSR not applicable for non-conversational tests)
     print(f"  {'Avg Relevance (1-5)':<32} {str(v0.get('avg_relevance','')):>10} {str(va.get('avg_relevance','')):>10} {str(vb.get('avg_relevance','')):>10}")
     print(f"  {'Avg Keyword Match':<32} {str(v0.get('avg_keyword_rate','')):>10} {str(va.get('avg_keyword_rate','')):>10} {str(vb.get('avg_keyword_rate','')):>10}")
     print(f"  {'Avg Final CSR':<32} {str(v0.get('avg_final_csr','N/A')):>10} {str(va.get('avg_final_csr','N/A')):>10} {str(vb.get('avg_final_csr','N/A')):>10}")
@@ -682,10 +697,26 @@ def print_comparison(summaries: list):
 
 # Main 
 def run_evaluation(modes: list):
+    """
+    Main evaluation orchestrator: runs all variants through complete test suite.
+    
+    Coordinates the full evaluation pipeline:
+    1. Runs each variant through all 24 test cases
+    2. Collects and computes summary statistics
+    3. Saves results to JSON and CSV files
+    4. Prints formatted comparison table
+    
+    Args:
+        modes (list): List of variants to evaluate - e.g. ["plain", "chunks", "episodes"]
+        
+    Returns:
+        None (saves files and prints results)
+    """
     print("\n" + "="*65)
     print("  MEMORYLENS EVALUATION (LLM-as-judge)")
     print("="*65)
     print(f"  Variants    : {', '.join(modes)}")
+    # prints number of test cases and breakdown by family
     print(f"  Test cases  : {len(TEST_SET)} — "
           f"{len([t for t in TEST_SET if t['family']=='factual'])} factual, "
           f"{len([t for t in TEST_SET if t['family']=='cross_modal'])} cross-modal, "
